@@ -1,12 +1,12 @@
 import React from "react";
-import Button from "./components/Button";
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./app-router";
 
 function App() {
   return (
-    <div className="App">
-      Hello React!, I am coming
-      <Button />
-    </div>
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
   );
 }
 

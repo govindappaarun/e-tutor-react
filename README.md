@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# E Commerce App built for Tutor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# What next
 
-## Available Scripts
+ecommerce:
 
-In the project directory, you can run:
+- add 3 to 4 more components
+- understand storybook design sytem
+- update colors based on that
 
-### `npm start`
+- product page reducer imlementation of endgame
+- add stroybook version compatible with react-script 4.0.3
+- start creating pages for home page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- add utilities for spacing
+- add utitlities
+- start doing the welcome page and home page
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- https://storybook.js.org/tutorials/design-systems-for-developers
+- understand storybooks visual testing
+  https://storybook.js.org/tutorials/ui-testing-handbook/react/en/visual-testing/
 
-### `npm test`
+- https://github.com/leonardomso/33-js-concepts 33 concepts
+  https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash
+- add test for components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- add tsconfig as per the project
 
-### `npm run build`
+- add mockbee integration
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- theme provider
+- cart provider
+- wish list provider
+- cartReducer
+- wishlist Reducer
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+--- not found route
+---- https://reactrouter.com/docs/en/v6/examples/basic
+---- nested router for product and details
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- -- context -->
+<!-- ---- cart context and cart -->
 
-### `npm run eject`
+On Hold -
+-- backend mockbee integration
+---- install mockbee and its configuration
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+-- react components
+---- styled components
+-- responsiveness
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+-- add nice 404 page for routes
