@@ -8,8 +8,8 @@ const Navbar = styled.nav`
   box-shadow: ${(props) => props.theme.boxShadow.bs1};
   padding: 0 1.8rem;
   z-index: 1000;
-  color: ${({ theme }) => theme.colors.black};
-  background-color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.text};
+  background-color: ${({ theme }) => theme.bg};
 `;
 
 export default Navbar;

@@ -1,9 +1,16 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { StyleType } from "../utils/style";
+import { Props } from "./Button";
 
-const Button = styled.button`
+interface StyleProps {
+  color?: "primary" | "secondary" | "warning" | "error" | "success" | "info";
+}
+
+const Button = styled.button<StyleProps>`
   border: none;
   color: initial;
   cursor: pointer;
+  display: inline-flex;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.1rem;
@@ -12,10 +19,19 @@ const Button = styled.button`
   text-decoration: none;
   line-height: 3.5rem;
 
+  ${(props) =>
+    props.disabled &&
+    css`
+      cursor: default;
+      opacity: 0.5;
+    `}
+
   &:hover {
     box-shadow: ${(props) => props.theme.boxShadow.bs1};
   }
 
+  ${(p) => p.color && StyleType[p.color]}
+  /*
   &.primary {
     background-color: var(--primary-main);
     border: 0.1rem solid var(--primary-main);
@@ -71,7 +87,7 @@ const Button = styled.button`
   &.warning:hover {
     background-color: var(--warning-dark);
   }
-
+*/
   /* outline buttons */
   &.outline-primary {
     background-color: transparent;
