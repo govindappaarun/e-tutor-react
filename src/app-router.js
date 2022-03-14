@@ -14,7 +14,7 @@ const publicRoutes = [
 ];
 
 const privateRoutes = [
-  { path: "/products", name: <WelComePage /> },
+  { path: "/product-list", name: <WelComePage /> },
   { path: "/cart", name: <HomePage /> },
   { path: "/wishlist", name: <SignUpPage /> },
 ];
