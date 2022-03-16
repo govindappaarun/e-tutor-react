@@ -1,11 +1,15 @@
 import React, { Children } from "react";
 import StyledTypography from "./Typography.styled";
-import { TextVariants } from "../utils/types";
+import { TextVariants, ColorTypes } from "../utils/types";
 
 export type TypographyProps = {
   variant: string;
-  color?: string;
+  color?: ColorTypes;
   children: React.ReactNode;
+  size?: string;
+  align?: "center" | "left" | "right";
+  uppercase?: boolean;
+  background?: ColorTypes;
 };
 
 export default function Typography({
