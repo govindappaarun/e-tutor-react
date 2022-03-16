@@ -79,4 +79,19 @@ const StyleFlex = {
   `,
 };
 
-export { StyleType, StyleFlex };
+const StyleSize = {
+  sm: css`
+    font-size: 16px;
+  `,
+  md: css`
+    font-size: 20px;
+  `,
+  lg: css`
+    font-size: 36px;
+  `,
+  xlg: css`
+    font-size: 42px;
+  `,
+};
+
+export { StyleType, StyleFlex, StyleSize };

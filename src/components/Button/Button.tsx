@@ -1,10 +1,10 @@
 import React from "react";
+import { ColorTypes } from "../utils/types";
 import StyledButton from "./Button.styled";
-import { ColorType } from "../types";
 
 export type ButtonProps = {
   size?: string;
-  color?: ColorType;
+  color?: ColorTypes;
   disabled?: boolean;
   type?: string;
   children?: React.ReactNode;

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { StyleType, StyleFlex } from "../utils/style";
 
 interface StyleProps {

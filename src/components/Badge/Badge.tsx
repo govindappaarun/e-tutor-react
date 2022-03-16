@@ -1,9 +1,10 @@
 import React from "react";
+import { ColorTypes } from "../utils/types";
 import StyledBadge from "./Badge.styled";
 
 export type BadgeProps = {
   size?: string;
-  color?: "primary" | "secondary" | "warning" | "error" | "success" | "info";
+  color?: ColorTypes;
   children?: React.ReactNode;
 };
 

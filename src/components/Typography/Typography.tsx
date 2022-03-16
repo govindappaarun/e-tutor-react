@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import StyledTypography from "./Typography.styled";
 import { TextVariants, ColorTypes } from "../utils/types";
 

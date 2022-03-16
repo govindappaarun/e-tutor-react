@@ -10,3 +10,11 @@ export enum TextVariants {
   body1 = "p",
   body2 = "p",
 }
+
+export type ColorTypes =
+  | "primary"
+  | "secondary"
+  | "warning"
+  | "error"
+  | "success"
+  | "info";
