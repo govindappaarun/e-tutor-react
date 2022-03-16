@@ -3,6 +3,9 @@ import HomePage from "./pages/home";
 import LoginPage from "./pages/login";
 import SignUpPage from "./pages/singup";
 import WelComePage from "./pages/welcome";
+import TestPage from "./pages/test";
+
+const NoMatch = () => <h3>404 - No matching route found</h3>;
 
 const isAuthenticated = false;
 
@@ -11,6 +14,8 @@ const publicRoutes = [
   { path: "/home", name: <HomePage /> },
   { path: "/signup", name: <SignUpPage /> },
   { path: "/login", name: <LoginPage /> },
+  { path: "/test", name: <TestPage /> },
+  { path: "*", name: <NoMatch /> },
 ];
 
 const privateRoutes = [
@@ -25,7 +30,7 @@ const AppRouter = () => {
   return (
     <Routes>
       {appRoutes.map((route) => (
-        <Route path={route.path} element={route.name} />
+        <Route key={route.name} path={route.path} element={route.name} />
       ))}
     </Routes>
   );

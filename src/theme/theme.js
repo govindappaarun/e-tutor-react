@@ -1,6 +1,6 @@
 import { colors } from "./colors";
 
-export default {
+const theme = {
   primary: {
     dark: colors.blue[700],
     main: colors.blue[500],
@@ -39,3 +39,5 @@ export default {
     bs1: "1px 1px 2px grey",
   },
 };
+
+export default theme;
