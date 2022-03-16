@@ -1,12 +1,8 @@
 import styled, { css } from "styled-components";
 import { StyleType } from "../utils/style";
-import { Props } from "./Button";
+import { ButtonProps } from "./Button";
 
-interface StyleProps {
-  color?: "primary" | "secondary" | "warning" | "error" | "success" | "info";
-}
-
-const Button = styled.button<StyleProps>`
+const Button = styled.button<ButtonProps>`
   border: none;
   color: initial;
   cursor: pointer;

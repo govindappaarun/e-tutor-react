@@ -2,7 +2,7 @@ import React from "react";
 import StyledButton from "./Button.styled";
 import { ColorType } from "../types";
 
-export interface Props {
+export type ButtonProps = {
   size?: string;
   color?: ColorType;
   disabled?: boolean;
@@ -10,9 +10,9 @@ export interface Props {
   children?: React.ReactNode;
   onClick?: () => void;
   className?: string;
-}
+};
 
-const Button = ({ children, color, ...rest }: Props) => {
+const Button = ({ children, color, ...rest }: ButtonProps) => {
   return <StyledButton color={color}>{children}</StyledButton>;
 };
 /*
