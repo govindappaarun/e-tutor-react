@@ -1,10 +1,12 @@
 export enum TextVariants {
+  hero = "h1",
   h1 = "h1",
   h2 = "h2",
   h3 = "h3",
   h4 = "h4",
   h5 = "h5",
   h6 = "h6",
+  title = "h2",
   subheading1 = "h6",
   subheading2 = "h6",
   body1 = "p",
@@ -18,3 +20,13 @@ export type ColorTypes =
   | "error"
   | "success"
   | "info";
+
+export type SizeTypes = "xs" | "sm" | "md" | "lg" | "xlg";
+
+export enum Size {
+  xs = "1.625rem",
+  sm = "1.875rem",
+  md = "2.25rem",
+  lg = "2.75rem",
+  xlg = "3.5rem",
+}

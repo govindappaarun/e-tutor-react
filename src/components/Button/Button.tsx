@@ -1,5 +1,5 @@
 import React from "react";
-import { ColorTypes } from "../utils/types";
+import { ColorTypes } from "../types/types";
 import StyledButton from "./Button.styled";
 
 export type ButtonProps = {

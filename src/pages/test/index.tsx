@@ -1,26 +1,25 @@
 import React from "react";
-import Badge from "../../components/Badge";
-import Button from "../../components/Button";
-import Navbar from "../../components/Navbar/Navbar";
+import Avatar from "src/components/Avatar/Avatar";
+import Badge from "src/components/Badge";
+import Button from "src/components/Button";
+import { CartIcon, WishIcon } from "src/components/Icon/Icon";
+import Navbar from "src/components/Navbar/Navbar";
+import Typography from "src/components/Typography/Typography";
 
 export default function Test() {
   return (
     <div className="App">
+      <Button>Test</Button>
       Hello React!, I am coming
-      <Badge color="primary">10</Badge>
-      <Badge color="secondary"></Badge>
-      <Badge color="warning"></Badge>
-      <Badge color="error"></Badge>
-      <Badge color="success"></Badge>
-      <Badge color="info"></Badge>
-      <div />
-      <Button color="primary">Test Button</Button>
-      <Button color="secondary">Test Button</Button>
-      <Button color="warning">Test Button</Button>
-      <Button color="error">Test Button</Button>
-      <Button color="success">Test Button</Button>
-      <Button color="info">Test Button</Button>
-      <Navbar />
+      <Typography variant="hero">Lorem ipsum dolor sit amet.</Typography>
+      <Typography variant="h3" color="success">
+        Lorem ipsum dolor sit amet.
+      </Typography>
+      <WishIcon size="xs" color="#F5C0B8" />
+      <WishIcon size="md" color="#F5C0B8" />
+      <WishIcon size="lg" color="#F5C0B8" />
+      <WishIcon size="xlg" color="#F5C0B8" />
+      <CartIcon color="#C6F0C2" />
     </div>
   );
 }
