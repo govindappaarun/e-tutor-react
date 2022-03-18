@@ -14,6 +14,7 @@ const Wrapper = styled.div`
 
   .get-started {
     margin-top: 7.5rem;
+    text-align: center;
   }
 
   .right {

@@ -1,20 +1,31 @@
 import React from "react";
-import Cartoon from "../../assets/media/cartoon.png";
+import { useNavigate } from "react-router-dom";
+import Cartoon from "src/assets/media/cartoon.png";
+import Button from "src/components/Button";
+import Image from "src/components/Image/Image";
+import Typography from "src/components/Typography/Typography";
 import Wrapper from "./style";
-import Image from "../../components/Image/Image";
 
 export default function WelComePage() {
+  const navigate = useNavigate();
   return (
     <Wrapper>
       <section className="left">
-        <div className="hero text-center primary">
+        <Typography variant="hero" color="primary">
           Try our Courses get hired faster!
-        </div>
+        </Typography>
 
-        <div className="text-center get-started">
-          <a href="src/home.html">
-            <button className="btn btn-outline-primary">Get Started</button>
-          </a>
+        <div className="get-started">
+          <Button
+            color="primary"
+            size="lg"
+            outline
+            onClick={() => {
+              navigate("/home");
+            }}
+          >
+            Get Started
+          </Button>
         </div>
       </section>
 
