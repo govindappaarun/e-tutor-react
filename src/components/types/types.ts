@@ -30,3 +30,11 @@ export enum Size {
   lg = "2.75rem",
   xlg = "3.5rem",
 }
+
+export enum Space {
+  xs = "0.25rem",
+  sm = "0.5rem",
+  md = "1rem",
+  lg = "1.5rem",
+  xlg = "2.5rem",
+}

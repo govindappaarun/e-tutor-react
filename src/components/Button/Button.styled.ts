@@ -4,8 +4,7 @@ import { ButtonProps } from "./Button";
 
 const Button = styled.button<ButtonProps>`
   border: none;
-  color: initial;
-  cursor: pointer;
+  outline: 0;
   display: inline-flex;
   font-size: 1rem;
   font-weight: 700;
@@ -14,11 +13,12 @@ const Button = styled.button<ButtonProps>`
   text-align: center;
   text-decoration: none;
   line-height: 3.5rem;
+  cursor: pointer;
 
   ${(props) =>
     props.disabled &&
     css`
-      cursor: default;
+      cursor: not-allowed;
       opacity: 0.5;
     `}
 
@@ -26,97 +26,29 @@ const Button = styled.button<ButtonProps>`
     box-shadow: ${(props) => props.theme.boxShadow.bs1};
   }
 
-  ${(p) => p.color && StyleType[p.color]}
-  /*
-  &.primary {
-    background-color: var(--primary-main);
-    border: 0.1rem solid var(--primary-main);
-    color: var(--white);
-  }
+  ${(p) => p.color && StyleType[p.color]};
 
-  .primary:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-3px);
-  }
+  ${(p) =>
+    p.color &&
+    css`
+      border: 1px solid ${(props) => p.color && props.theme[p.color]["main"]};
+      &:hover {
+        transform: translateY(-3px);
+        background-color: ${(props) => p.color && props.theme[p.color]["dark"]};
+      }
+    `}
 
-  &.secondary {
-    background-color: var(--secondary-main);
-    border-color: var(--secondary-main);
-    color: var(--white);
-  }
-
-  &.secondary:hover {
-    background-color: var(--secondary-dark);
-    transform: translateY(-3px);
-  }
-
-  &.error {
-    background-color: var(--error-main);
-    border-color: var(--error-main);
-    color: var(--white);
-    outline: 0;
-  }
-
-  &.error:hover {
-    background-color: var(--error-dark);
-    transform: translateY(-3px);
-  }
-
-  &.warning {
-    background-color: var(--warning-main);
-    border-color: var(--warning-main);
-    color: var(--white);
-    outline: 0;
-  }
-
-  &.warning:hover {
-    background-color: var(--warning-dark);
-    transform: translateY(-3px);
-  }
-  &.warning {
-    background-color: var(--warning-main);
-    border-color: var(--warning-main);
-    color: var(--white);
-    outline: 0;
-  }
-
-  &.warning:hover {
-    background-color: var(--warning-dark);
-  }
-*/
-  /* outline buttons */
-  &.outline-primary {
-    background-color: transparent;
-    border: 1px solid;
-    color: var(--primary-main);
-  }
-
-  &.outline-primary:hover {
-    color: var(--white);
-    background-color: var(--primary-main);
-  }
-
-  &.outline-secondary {
-    background-color: transparent;
-    border: 1px solid;
-    color: var(--secondary-main);
-  }
-
-  &.outline-secondary:hover {
-    color: var(--white);
-    background-color: var(--secondary-main);
-  }
-
-  &.outline-error {
-    background-color: transparent;
-    border: 1px solid;
-    color: var(--error-main);
-  }
-
-  &.outline-error:hover {
-    color: var(--white);
-    background-color: var(--error-main);
-  }
+  ${(p) =>
+    p.outline &&
+    css`
+      color: ${(props) => p.color && props.theme[p.color]["main"]};
+      background-color: transparent;
+      border-radius: 5px;
+      &:hover {
+        color: ${(p) => p.theme.white};
+        background-color: ${(props) => p.color && props.theme[p.color]["main"]};
+      }
+    `}
 `;
 
 export default Button;

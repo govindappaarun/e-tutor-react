@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React from "react";
 import { ColorTypes } from "../types/types";
 import StyledButton from "./Button.styled";
@@ -6,25 +7,29 @@ export type ButtonProps = {
   size?: string;
   color?: ColorTypes;
   disabled?: boolean;
-  type?: string;
   children?: React.ReactNode;
   onClick?: () => void;
   className?: string;
+  outline?: boolean;
 };
 
-const Button = ({ children, color, ...rest }: ButtonProps) => {
-  return <StyledButton color={color}>{children}</StyledButton>;
-};
-/*
-Button.defaultProps = {
-  size: "md",
+const Button = ({
+  children,
+  color = "primary",
+  className,
+  ...rest
+}: ButtonProps) => {
+  const classNames = clsx(className, color);
+  return (
+    <StyledButton className={classNames} color={color} {...rest}>
+      {children}
+    </StyledButton>
+  );
 };
 
-Button.propTypes = {
-  size: Proptypes.oneOf(["xs", "md", "lg", "sm"]),
-  variant: Proptypes.oneOf(["solid", "outline", "ghost", "link"]),
-  leftIcon: "",
-  rightIcon: "",
-  isLoading: "",
-};*/
+/* 
+ add default props
+ add prop types
+*/
+
 export default Button;
