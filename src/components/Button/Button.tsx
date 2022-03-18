@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import React from "react";
-import { ColorTypes } from "../types/types";
+import { ColorTypes, SizeTypes } from "../types/types";
 import StyledButton from "./Button.styled";
 
 export type ButtonProps = {
-  size?: string;
+  size?: SizeTypes;
   color?: ColorTypes;
   disabled?: boolean;
   children?: React.ReactNode;
@@ -26,10 +26,5 @@ const Button = ({
     </StyledButton>
   );
 };
-
-/* 
- add default props
- add prop types
-*/
 
 export default Button;

@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { StyleType } from "../utils/style";
 import { ButtonProps } from "./Button";
+import { ButtonSize } from "./types";
 
 const Button = styled.button<ButtonProps>`
   border: none;
@@ -12,8 +13,8 @@ const Button = styled.button<ButtonProps>`
   padding: 0 2rem;
   text-align: center;
   text-decoration: none;
-  line-height: 3.5rem;
   cursor: pointer;
+  line-height: ${(p) => (p.size ? ButtonSize[p.size] : ButtonSize.md)};
 
   ${(props) =>
     props.disabled &&
