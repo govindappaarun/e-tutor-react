@@ -4,10 +4,11 @@ import LoginPage from "./pages/login";
 import SignUpPage from "./pages/singup";
 import WelComePage from "./pages/welcome";
 import TestPage from "./pages/test";
+import ProductList from "./pages/product-list";
 
 const NoMatch = () => <h3>404 - No matching route found</h3>;
 
-const isAuthenticated = false;
+const isAuthenticated = true;
 
 const publicRoutes = [
   { path: "/", name: <WelComePage /> },
@@ -19,7 +20,7 @@ const publicRoutes = [
 ];
 
 const privateRoutes = [
-  { path: "/product-list", name: <WelComePage /> },
+  { path: "/product-list", name: <ProductList /> },
   { path: "/cart", name: <HomePage /> },
   { path: "/wishlist", name: <SignUpPage /> },
 ];
