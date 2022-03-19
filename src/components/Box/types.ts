@@ -1,5 +1,13 @@
+type alignOptions = "start" | "end" | "center";
+
 export type Flex = "flex" | "inline-flex";
 
-export type JC = "center" | "start" | "left" | "end";
+export type JC = alignOptions;
 
-export type AI = "center" | "strech" | "start" | "end";
+export type AI = "start" | "end" | "center" | "strech";
+
+export type Wrap = "wrap" | "nowrap" | "wrap-reverse";
+
+export type AS = alignOptions;
+
+export type Direction = "row" | "column" | "row-reverse" | "column-reverse";
