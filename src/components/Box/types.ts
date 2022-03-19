@@ -2,7 +2,7 @@ type alignOptions = "start" | "end" | "center";
 
 export type Flex = "flex" | "inline-flex";
 
-export type JC = alignOptions;
+export type JC = "start" | "end" | "center" | "space-between" | "space-around";
 
 export type AI = "start" | "end" | "center" | "strech";
 
