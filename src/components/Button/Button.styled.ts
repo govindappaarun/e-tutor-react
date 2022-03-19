@@ -13,6 +13,7 @@ const Button = styled.button<ButtonProps>`
   padding: 0 2rem;
   text-align: center;
   text-decoration: none;
+  position: relative;
   cursor: pointer;
   line-height: ${(p) => (p.size ? ButtonSize[p.size] : ButtonSize.md)};
 
@@ -53,3 +54,9 @@ const Button = styled.button<ButtonProps>`
 `;
 
 export default Button;
+
+/*
+
+ border radius to be dynamic 
+ link button
+ */

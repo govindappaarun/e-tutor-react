@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import { NavBarProps } from "./Navbar";
+import Box from "../Box";
+import { BoxProps } from "../Box/Box";
 
-const Navbar = styled.nav`
+const Navbar = styled(Box)<NavBarProps>`
   align-items: center;
   display: flex;
   font-size: 1.2rem;
