@@ -5,6 +5,8 @@ import SignUpPage from "./pages/singup";
 import WelComePage from "./pages/welcome";
 import TestPage from "./pages/test";
 import ProductList from "./pages/product-list";
+import Cart from "./pages/cart";
+import Wishlist from "./pages/wishlist";
 
 const NoMatch = () => <h3>404 - No matching route found</h3>;
 
@@ -21,8 +23,8 @@ const publicRoutes = [
 
 const privateRoutes = [
   { path: "/product-list", name: <ProductList /> },
-  { path: "/cart", name: <HomePage /> },
-  { path: "/wishlist", name: <SignUpPage /> },
+  { path: "/cart", name: <Cart /> },
+  { path: "/wishlist", name: <Wishlist /> },
 ];
 
 const AppRouter = () => {
