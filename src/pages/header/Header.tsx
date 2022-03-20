@@ -39,20 +39,21 @@ export default function ({ ...rest }: HeaderProps) {
           <a href="cart.html">
             <i className="fas fa-cart-plus"></i>
           </a>
-          <a href="signup.html">
-            <Button
-              color="warning"
-              outline
-              className="btn btn-link btn-link-warning"
-            >
-              Create Account
-            </Button>
-          </a>
-          <a href="login.html">
-            <Button color="primary" className="btn btn-warning">
-              Sign In
-            </Button>
-          </a>
+          <Button
+            onClick={() => navigate("/signup")}
+            color="warning"
+            outline
+            className="btn btn-link btn-link-warning"
+          >
+            Create Account
+          </Button>
+          <Button
+            onClick={() => navigate("/login")}
+            color="primary"
+            className="btn btn-warning"
+          >
+            Sign In
+          </Button>
         </div>
       </Navbar>
     </Wrapper>
