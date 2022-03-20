@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import { Size } from "./types";
 import { BoxProps } from "./Box";
 
 export const StyledBox = styled.div<BoxProps>`
-  display: ${(p) => p.flex};
+  display: ${(p) => p.display || "block"};
   direction: ${(p) => p.direction || "row"};
 
+  gap: ${(p) => (p.gap ? Size[p.gap] : 0)};
   justify-content: ${(p) => p.justifyContent || "start"};
   align-items: ${(p) => p.alignItems || "strech"};
   align-self: ${(p) => p.alignSelf || "auto"};
