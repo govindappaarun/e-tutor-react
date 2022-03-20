@@ -11,3 +11,11 @@ export type Wrap = "wrap" | "nowrap" | "wrap-reverse";
 export type AS = alignOptions;
 
 export type Direction = "row" | "column" | "row-reverse" | "column-reverse";
+
+export enum Size {
+  xs = "0.5rem",
+  sm = "0.75rem",
+  md = "1.25rem",
+  lg = "2rem",
+  xlg = "3.5rem",
+}

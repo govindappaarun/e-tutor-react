@@ -15,7 +15,7 @@ export type ButtonProps = {
 
 const Button = ({
   children,
-  color = "primary",
+  color = "info",
   className,
   ...rest
 }: ButtonProps) => {

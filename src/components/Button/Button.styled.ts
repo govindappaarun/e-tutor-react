@@ -45,7 +45,6 @@ const Button = styled.button<ButtonProps>`
     css`
       color: ${(props) => p.color && props.theme[p.color]["main"]};
       background-color: transparent;
-      border-radius: 5px;
       &:hover {
         color: ${(p) => p.theme.white};
         background-color: ${(props) => p.color && props.theme[p.color]["main"]};
