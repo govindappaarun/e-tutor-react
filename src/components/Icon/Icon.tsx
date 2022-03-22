@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { ColorTypes, SizeTypes } from "../types/types";
 import { StyleSvgProps } from "./Icon.styled";

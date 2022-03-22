@@ -5,7 +5,6 @@ import Header from "../header";
 import Footer from "../footer";
 import { Category, Product } from "./types";
 import ProductCard from "./Components/ProductCard";
-import Checkbox from "src/components/Checkbox";
 import Box from "src/components/Box";
 import Button from "src/components/Button";
 import Input from "src/components/Input";
@@ -21,7 +20,7 @@ export default function ProductList() {
   const navigate = useNavigate();
   const [products, setProducts] = useState<Product[] | null>(null);
   const [categories, setCategories] = useState<Category[] | null>(null);
-  const { state, dispatch } = useCart();
+  const { dispatch } = useCart();
 
   useEffect(() => {
     getProducts();
@@ -96,8 +95,10 @@ export default function ProductList() {
             >
               <Typography variant="h4">Suggestion:</Typography>
               {categories &&
-                categories.map(({ categoryName }) => (
-                  <Badge color="warning">{categoryName}</Badge>
+                categories.map(({ categoryName }, index) => (
+                  <Badge key={index} color="warning">
+                    {categoryName}
+                  </Badge>
                 ))}
               <Typography variant="h5" className="ml-auto">
                 3,145,684 results find for “ui/ux design”

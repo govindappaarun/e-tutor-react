@@ -10,7 +10,7 @@ export const StyledAvatar = styled.span<AvatarProps>`
   height: 4rem;
 
   ${(p) =>
-    p.type == "span" &&
+    p.type === "span" &&
     css`
       text-align: center;
       display: inline-block;

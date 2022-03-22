@@ -1,32 +1,18 @@
-import React from "react";
-import Avatar from "src/components/Avatar/Avatar";
 import Badge from "src/components/Badge";
 import Box from "src/components/Box";
-import Button from "src/components/Button";
-import Checkbox from "src/components/Checkbox";
-import {
-  CartIcon,
-  WishIcon,
-  UserIcon,
-  CreditCardIcon,
-  HomeIcon,
-} from "src/components/Icon";
-import Navbar from "src/components/Navbar/Navbar";
-import Typography from "src/components/Typography/Typography";
-import { ReactComponent as Cart } from "../../assets/svg/shopping-cart.svg";
+import { LinkButton } from "src/components/Button/Button";
+import { CartIcon } from "src/components/Icon";
 
 export default function Test() {
   return (
     <div className="App">
-      <Box display="flex" alignItems="strech" justifyContent="end">
-        <Button color="primary">Primary</Button>
-        <Button color="warning" outline>
-          Warning
-        </Button>
+      <Box className="test">
+        <CartIcon hoverColor="green" />
+        <Badge size="xs">0</Badge>
       </Box>
-      <CartIcon color="red" hoverColor="green" />
-      <WishIcon />
-      <Checkbox label="Test Label" />
+
+      <LinkButton color="primary">Arun here</LinkButton>
+      <LinkButton color="error">Arun here</LinkButton>
     </div>
   );
 }

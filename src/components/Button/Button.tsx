@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import React from "react";
+import styled from "styled-components";
 import { ColorTypes, SizeTypes } from "../types/types";
 import StyledButton from "./Button.styled";
 
@@ -26,5 +27,18 @@ const Button = ({
     </StyledButton>
   );
 };
+
+export const LinkButton = styled(Button)`
+  background-color: transparent;
+  border: 0;
+  color: ${(p) => (p.color ? p.theme[p.color]["main"] : "white")};
+  padding: 5px;
+  &:hover {
+    background-color: transparent;
+    text-decoration: underline;
+    box-shadow: none;
+    transform: none;
+  }
+`;
 
 export default Button;

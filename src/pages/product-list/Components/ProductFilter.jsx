@@ -2,6 +2,12 @@ import React from "react";
 import { filters, ratings } from "../product-data";
 import { Box, Typography, Checkbox, Input, Rating } from "src/components";
 
+// clear filter - reset to initial state
+// set / unset categories
+// set / unset ratings
+// range set or unset
+// SortBy set or unset
+
 export default function () {
   return (
     <aside className="sidebar">
@@ -17,7 +23,11 @@ export default function () {
               <Box>
                 {filter.subFilters.map((sub, index) => (
                   <Box key={index} display="flex">
-                    <Checkbox id={sub.name} label={sub.name} />
+                    <Checkbox
+                      id={sub.name}
+                      label={sub.name}
+                      onChange={() => console.log("on change")}
+                    />
                     <Box className="ml-auto">{sub.courses}</Box>
                   </Box>
                 ))}
@@ -31,7 +41,10 @@ export default function () {
           </Typography>
           {ratings.map((rating, index) => (
             <Box key={index} display="flex">
-              <Checkbox label={rating.label} />
+              <Checkbox
+                label={rating.label}
+                onChange={() => console.log("on change")}
+              />
               <Box className="ml-auto">{rating.count}</Box>
             </Box>
           ))}

@@ -10,17 +10,6 @@ export const filters = [
       { name: "Software Testing", courses: 100 },
     ],
   },
-  {
-    filterName: "Business",
-    subFilters: [
-      { name: "Web Development", courses: 400 },
-      { name: "Data Science", courses: 455 },
-      { name: "Mobile Development", courses: 345 },
-      { name: "Software Development", courses: 410 },
-      { name: "Software Enginnering", courses: 200 },
-      { name: "Software Testing", courses: 100 },
-    ],
-  },
 ];
 
 export const ratings = [

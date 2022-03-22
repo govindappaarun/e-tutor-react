@@ -7,55 +7,55 @@ export default function Footer() {
       <div className="footer-container">
         <ul className="footer-links">
           <li>
-            <a>EXPLORE OUR</a>
+            <a href="#">EXPLORE OUR</a>
           </li>
           <li>
-            <a>Labal</a>
+            <a href="#">Labal</a>
           </li>
           <li>
-            <a>Events</a>
+            <a href="#">Events</a>
           </li>
           <li>
-            <a>News & Articles</a>
+            <a href="#">News & Articles</a>
           </li>
           <li>
-            <a>Sitemap</a>
-          </li>
-        </ul>
-
-        <ul className="footer-links">
-          <li>
-            <a>Quick Links</a>
-          </li>
-          <li>
-            <a>About</a>
-          </li>
-          <li>
-            <a>Become Instructor</a>
-          </li>
-          <li>
-            <a>Contact</a>
-          </li>
-          <li>
-            <a>Career</a>
+            <a href="#">Sitemap</a>
           </li>
         </ul>
 
         <ul className="footer-links">
           <li>
-            <a>Support</a>
+            <a href="#">Quick Links</a>
           </li>
           <li>
-            <a>Help Center</a>
+            <a href="#">About</a>
           </li>
           <li>
-            <a>FAQs</a>
+            <a href="#">Become Instructor</a>
           </li>
           <li>
-            <a>Terms & Condition</a>
+            <a href="#">Contact</a>
           </li>
           <li>
-            <a>Privacy Policy</a>
+            <a href="#">Career</a>
+          </li>
+        </ul>
+
+        <ul className="footer-links">
+          <li>
+            <a href="#">Support</a>
+          </li>
+          <li>
+            <a href="#">Help Center</a>
+          </li>
+          <li>
+            <a href="#">FAQs</a>
+          </li>
+          <li>
+            <a href="#">Terms & Condition</a>
+          </li>
+          <li>
+            <a href="#">Privacy Policy</a>
           </li>
         </ul>
       </div>
