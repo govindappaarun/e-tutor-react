@@ -1,14 +1,8 @@
 import React from "react";
 import { filters, ratings } from "../product-data";
-import { Box, Typography, Checkbox, Input, Rating } from "src/components";
+import { Box, Typography, Checkbox, Input } from "src/components";
 
-// clear filter - reset to initial state
-// set / unset categories
-// set / unset ratings
-// range set or unset
-// SortBy set or unset
-
-export default function () {
+export default function ProductFilter() {
   return (
     <aside className="sidebar">
       <section className="filter">

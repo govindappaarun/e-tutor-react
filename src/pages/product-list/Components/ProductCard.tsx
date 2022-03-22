@@ -5,8 +5,6 @@ import { Product } from "../types";
 import Course1 from "src/assets/media/course1.jpg";
 import { CardProps } from "src/components/Card/Card";
 import Button from "src/components/Button";
-import Box from "src/components/Box";
-import { products } from "src/backend/db/products";
 
 interface ProductCardProps extends Omit<CardProps, "children"> {
   product: Product;
@@ -18,7 +16,7 @@ export default function ProductCard({
   addToCart,
   ...rest
 }: ProductCardProps) {
-  const { title, rating, img, tag, enrollment, price } = product;
+  const { title, rating, tag, enrollment, price } = product;
   return (
     <Card cursor="pointer" className="card" key={title} {...rest}>
       <div className="card-media">

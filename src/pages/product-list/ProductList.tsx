@@ -126,7 +126,7 @@ export default function ProductList() {
           <Box display="flex" justifyContent="center" gap="sm" className="my-2">
             {instructors.map((instructor, index) => (
               <Card key={index}>
-                <img src={instructor.profile} />
+                <img src={instructor.profile} alt={instructor.name} />
                 <Typography align="center" variant="div">
                   {instructor.name}
                 </Typography>

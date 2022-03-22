@@ -1,4 +1,4 @@
-import React from "react";
+import { LinkButton as Link } from "src/components/Button/Button";
 import { Wrapper } from "./Footer.styled";
 
 export default function Footer() {
@@ -7,55 +7,55 @@ export default function Footer() {
       <div className="footer-container">
         <ul className="footer-links">
           <li>
-            <a href="#">EXPLORE OUR</a>
+            <Link>EXPLORE OUR</Link>
           </li>
           <li>
-            <a href="#">Labal</a>
+            <Link>Labal</Link>
           </li>
           <li>
-            <a href="#">Events</a>
+            <Link>Events</Link>
           </li>
           <li>
-            <a href="#">News & Articles</a>
+            <Link>News & Articles</Link>
           </li>
           <li>
-            <a href="#">Sitemap</a>
-          </li>
-        </ul>
-
-        <ul className="footer-links">
-          <li>
-            <a href="#">Quick Links</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Become Instructor</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-          <li>
-            <a href="#">Career</a>
+            <Link>Sitemap</Link>
           </li>
         </ul>
 
         <ul className="footer-links">
           <li>
-            <a href="#">Support</a>
+            <Link>Quick Links</Link>
           </li>
           <li>
-            <a href="#">Help Center</a>
+            <Link>About</Link>
           </li>
           <li>
-            <a href="#">FAQs</a>
+            <Link>Become Instructor</Link>
           </li>
           <li>
-            <a href="#">Terms & Condition</a>
+            <Link>Contact</Link>
           </li>
           <li>
-            <a href="#">Privacy Policy</a>
+            <Link>Career</Link>
+          </li>
+        </ul>
+
+        <ul className="footer-links">
+          <li>
+            <Link>Support</Link>
+          </li>
+          <li>
+            <Link>Help Center</Link>
+          </li>
+          <li>
+            <Link>FAQs</Link>
+          </li>
+          <li>
+            <Link>Terms & Condition</Link>
+          </li>
+          <li>
+            <Link>Privacy Policy</Link>
           </li>
         </ul>
       </div>

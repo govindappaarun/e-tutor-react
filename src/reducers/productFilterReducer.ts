@@ -10,7 +10,7 @@ type Action =
   | { type: "SET_RANGE"; payload: number }
   | { type: "SET_COURSE_TYPE"; payload: number };
 
-export const cartReducer = (
+export const productFilterReducer = (
   state: typeof initialState,
   { type, payload }: Action
 ) => {

@@ -12,7 +12,7 @@ import { Product } from "../types";
 export default function ProductInfo() {
   const params = useParams();
   const [product, setProduct] = useState<Product | null>(null);
-  const { state, dispatch } = useCart();
+  const { dispatch } = useCart();
 
   useEffect(() => {
     if (params.id) {
@@ -24,7 +24,7 @@ export default function ProductInfo() {
         })
         .catch(() => {});
     }
-  }, []);
+  }, [params.id]);
 
   return (
     <div>

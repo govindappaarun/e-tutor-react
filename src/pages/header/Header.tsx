@@ -11,7 +11,7 @@ import { CartIcon, WishIcon } from "src/components/Icon";
 import Badge from "src/components/Badge";
 export type HeaderProps = {};
 
-export default function ({ ...rest }: HeaderProps) {
+export default function Header({ ...rest }: HeaderProps) {
   const navigate = useNavigate();
   const { state } = useCart();
   return (
@@ -35,15 +35,6 @@ export default function ({ ...rest }: HeaderProps) {
         </div>
 
         <div className="nav-right flex-gap-2">
-          <a href="wishlist.html">
-            <i className="far fa-heart"></i>
-          </a>
-          <a href="#">
-            <i className="far fa-bell"></i>
-          </a>
-          <a href="cart.html">
-            <i className="fas fa-cart-plus"></i>
-          </a>
           <Box
             className="icon-container"
             display="inline-block"
