@@ -7,7 +7,7 @@ import TestPage from "./pages/test";
 import ProductList from "./pages/product-list";
 import Cart from "./pages/cart";
 import Wishlist from "./pages/wishlist";
-import ProductInfo from "./pages/product-list/Components/product-info";
+import ProductInfo from "./pages/product-list/Components/ProductInfo";
 
 const NoMatch = () => <h3>404 - No matching route found</h3>;
 
