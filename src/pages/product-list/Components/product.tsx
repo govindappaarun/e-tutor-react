@@ -3,18 +3,24 @@ import Card from "src/components/Card";
 import Rating from "src/components/Rating";
 import { Product } from "../types";
 import Course1 from "src/assets/media/course1.jpg";
+import { CardProps } from "src/components/Card/Card";
+import Button from "src/components/Button";
+import Box from "src/components/Box";
+import { products } from "src/backend/db/products";
+
+interface ProductCardProps extends Omit<CardProps, "children"> {
+  product: Product;
+  addToCart: (product: Product) => void;
+}
 
 export default function ProductCard({
-  title,
-  rating,
-  img,
-  tag,
-  enrollment,
-  price,
+  product,
+  addToCart,
   ...rest
-}: Product) {
+}: ProductCardProps) {
+  const { title, rating, img, tag, enrollment, price } = product;
   return (
-    <Card className="card" key={title} {...rest}>
+    <Card cursor="pointer" className="card" key={title} {...rest}>
       <div className="card-media">
         <img loading="lazy" src={Course1} alt="course" />
       </div>
@@ -33,6 +39,17 @@ export default function ProductCard({
           <i className="fas fa-user"></i>
           {enrollment}
         </div>
+        <Button
+          className="add-to-cart my-1"
+          outline
+          color="warning"
+          onClick={() => {
+            // e.stopPropagation();
+            addToCart(product);
+          }}
+        >
+          Add to Cart
+        </Button>
       </div>
     </Card>
   );

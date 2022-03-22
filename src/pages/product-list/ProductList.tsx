@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Wrapper } from "./ProductList.styled";
 import axios from "axios";
 import Header from "../header";
@@ -13,91 +13,29 @@ import Badge from "src/components/Badge";
 import Typography from "src/components/Typography/Typography";
 import { categories, instructors, ratings } from "./product-data";
 import Card from "src/components/Card";
-import Course1 from "src/assets/media/course1.jpg";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "src/contexts/cartContext";
 
 export default function ProductList() {
-  const products: Product[] = [
-    {
-      tag: "IT & Web",
-      title: "Machine Learning: Intro to Python & R",
-      price: 2500,
-      img: "/assets/media/course1.jpg",
-      rating: "4.5",
-      enrollment: "197,637 students",
-    },
-    {
-      tag: "IT & Software",
-      title: "Vue Complete Course with Javascript, HTML, CSS, BOOTSTRAP",
-      price: 1500,
-      img: "/assets/media/course2.jpg",
-      rating: "5.0",
-      enrollment: "197,637 students",
-    },
-    {
-      tag: "IT & Software",
-      title: "Introduction to Web Development",
-      price: 1500,
-      img: "/assets/media/course3.jpg",
-      rating: "5.0",
-      enrollment: "197,637 students",
-    },
-    {
-      tag: "IT & Software",
-      title: "Become a Web Developer from Scratch",
-      price: 1500,
-      img: "/assets/media/course4.jpg",
-      rating: "5.0",
-      enrollment: "197,637 students",
-    },
-    {
-      tag: "IT & Software",
-      title: "Become a Certified HTML, CSS, JavaScript Web Developer",
-      price: 2500,
-      img: "/assets/media/course5.jpg",
-      rating: "5.0",
-      enrollment: "197,637 students",
-    },
-    {
-      tag: "IT & Software",
-      title: "The Complete 2022 Fullstack Web Developer Course",
-      price: 1500,
-      img: "/assets/media/course6.jpg",
-      rating: "5.0",
-      enrollment: "197,637 students",
-    },
-    {
-      tag: "IT & Software",
-      title: "The Fullstack Nft Minting Website Course",
-      price: 1500,
-      img: "/assets/media/course7.jpg",
-      rating: "5.0",
-      enrollment: "197,637 students",
-    },
-    {
-      tag: "IT & Software",
-      title: "GraphQL with React & Node js - Real Time Private Chat App",
-      price: 1500,
-      img: "/assets/media/course8.jpg",
-      rating: "5.0",
-      enrollment: "197,637 students",
-    },
-    {
-      tag: "IT & Software",
-      title: "GraphQL with React & Node js - Real Time Private Chat App",
-      price: 1500,
-      img: "/assets/media/course1.jpg",
-      rating: "5.0",
-      enrollment: "197,637 students",
-    },
-    {
-      tag: "IT & Software",
-      title: "Practical CSS3 Flexbox Media Queries & CSS Grid Mastery",
-      price: 1500,
-      img: "/assets/media/course2.jpg",
-      rating: "5.0",
-      enrollment: "197,637 students",
-    },
-  ];
+  const navigate = useNavigate();
+  const [products, setProducts] = useState<Product[] | null>(null);
+  const { state, dispatch } = useCart();
+
+  useEffect(() => {
+    axios
+      .get("/api/products")
+      .then(function (response) {
+        setProducts(response.data.products);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+
+  const addToCart = (product: Product) => {
+    dispatch({ type: "ADD_TO_CART", payload: { item: product } });
+  };
+
   return (
     <React.Fragment>
       <Wrapper>
@@ -175,12 +113,25 @@ export default function ProductList() {
                   </Box>
                 ))}
               </div>
+              <div className="group">
+                <Typography className="my-1" variant="h3">
+                  Price
+                </Typography>
+                <Input type="range" min={1000} max={10000} />
+              </div>
             </section>
           </aside>
           <section className="product-list">
-            {products.map((product, index) => (
-              <ProductCard key={index} {...product} />
-            ))}
+            {products &&
+              products.map((product: Product, index: number) => (
+                <ProductCard
+                  className="product-card"
+                  key={index}
+                  product={product}
+                  addToCart={addToCart}
+                  onClick={() => navigate(`/product/${product._id}`)}
+                />
+              ))}
           </section>
         </main>
         <section className="instructors">

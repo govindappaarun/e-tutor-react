@@ -1,10 +1,10 @@
 import React from "react";
 import { SizeTypes } from "../types/types";
 import { StyledBox } from "./Box.styled";
-import { Flex, JC, AI, Wrap, AS, Direction } from "./types";
+import { JC, AI, Wrap, AS, Direction, Display } from "./types";
 
 export type BoxProps = {
-  display?: Flex;
+  display?: Display;
   justifyContent?: JC;
   alignItems?: AI;
   alignSelf?: AS;

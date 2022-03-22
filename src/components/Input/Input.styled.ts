@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { InputProps } from "./Input";
 
 export const StyledInput = styled.div<InputProps>`
@@ -75,4 +75,20 @@ export const StyledInput = styled.div<InputProps>`
     height: 1.25rem;
     width: 1.25rem;
   }
+
+  ${(p) =>
+    p.type &&
+    p.type === "range" &&
+    css`
+      &,
+      input {
+        border: none;
+        outline: 0;
+      }
+      &:hover,
+      input:hover {
+        outline: 0;
+        border: none;
+      }
+    `}
 `;

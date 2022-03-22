@@ -7,6 +7,7 @@ import TestPage from "./pages/test";
 import ProductList from "./pages/product-list";
 import Cart from "./pages/cart";
 import Wishlist from "./pages/wishlist";
+import ProductInfo from "./pages/product-list/Components/product-info";
 
 const NoMatch = () => <h3>404 - No matching route found</h3>;
 
@@ -14,7 +15,7 @@ const isAuthenticated = true;
 
 const publicRoutes = [
   { path: "/", name: <WelComePage /> },
-  { path: "/home", name: <HomePage /> },
+  { path: "/home", name: <ProductList /> },
   { path: "/signup", name: <SignUpPage /> },
   { path: "/login", name: <LoginPage /> },
   { path: "/test", name: <TestPage /> },
@@ -23,6 +24,7 @@ const publicRoutes = [
 
 const privateRoutes = [
   { path: "/product-list", name: <ProductList /> },
+  { path: "/product/:id", name: <ProductInfo /> },
   { path: "/cart", name: <Cart /> },
   { path: "/wishlist", name: <Wishlist /> },
 ];

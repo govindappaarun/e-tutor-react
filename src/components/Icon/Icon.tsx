@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { SizeTypes } from "../types/types";
+import { ColorTypes, SizeTypes } from "../types/types";
 import { StyleSvgProps } from "./Icon.styled";
 
 import { ReactComponent as Wish } from "../../assets/svg/heart.svg";
@@ -15,7 +15,7 @@ import { ReactComponent as lifebuoy } from "../../assets/svg/life-buoy.svg";
 import { ReactComponent as dribble } from "../../assets/svg/dribble.svg";
 
 export type IconProps = {
-  color?: string;
+  color?: ColorTypes;
   hoverColor?: string;
   size?: SizeTypes;
 };
