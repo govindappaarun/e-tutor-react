@@ -7,3 +7,9 @@ export interface Product {
   enrollment: string;
   price: number;
 }
+
+export interface Category {
+  _id: string;
+  categoryName: string;
+  description: string;
+}

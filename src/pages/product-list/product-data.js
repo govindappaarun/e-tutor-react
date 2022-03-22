@@ -1,7 +1,7 @@
-export const categories = [
+export const filters = [
   {
-    categoryName: "Development",
-    subCategories: [
+    filterName: "Development",
+    subFilters: [
       { name: "Web Development", courses: 400 },
       { name: "Data Science", courses: 455 },
       { name: "Mobile Development", courses: 345 },
@@ -11,8 +11,8 @@ export const categories = [
     ],
   },
   {
-    categoryName: "Business",
-    subCategories: [
+    filterName: "Business",
+    subFilters: [
       { name: "Web Development", courses: 400 },
       { name: "Data Science", courses: 455 },
       { name: "Mobile Development", courses: 345 },
