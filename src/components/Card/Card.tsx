@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import { BoxProps } from "../Box/Box";
 import { StyledCard } from "./Card.styled";
 

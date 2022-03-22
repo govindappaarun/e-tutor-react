@@ -28,8 +28,8 @@ export default function Typography({
   // update class name based on element or variant
   className = clsx(
     className,
-    { [variant]: variant != element },
-    { [element]: variant == element }
+    { [variant]: variant !== element },
+    { [element]: variant === element }
   );
   return (
     <StyledTypography

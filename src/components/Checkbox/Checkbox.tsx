@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import { StyledCheckbox } from "./Checkbox.styled";
 import { ColorTypes, SizeTypes } from "../types/types";
 

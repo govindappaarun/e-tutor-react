@@ -1,4 +1,3 @@
-import { SizeTypes, Size } from "../types/types";
 import styled, { css } from "styled-components";
 import { StyleType, StyleFlex } from "../utils/style";
 import { BadgeProps } from "./Badge";

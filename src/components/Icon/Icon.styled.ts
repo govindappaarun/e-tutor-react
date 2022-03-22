@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import { css } from "styled-components";
 import { Size } from "../types/types";
 import { IconProps } from "./Icon";
 

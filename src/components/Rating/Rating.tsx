@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import { StyledRating } from "./Rating.styled";
 export type RatingProps = {
   children?: React.ReactNode;

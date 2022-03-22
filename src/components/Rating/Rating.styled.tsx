@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Box from "../Box";
 import { RatingProps } from "./Rating";
 
 export const StyledRating = styled.div<RatingProps>`
