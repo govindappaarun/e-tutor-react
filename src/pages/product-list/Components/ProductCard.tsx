@@ -2,7 +2,7 @@ import React from "react";
 import Card from "src/components/Card";
 import Rating from "src/components/Rating";
 import { Product } from "../types";
-import Course1 from "src/assets/media/course1.jpg";
+// import Course1 from "src/assets/media/course1.jpg";
 import { CardProps } from "src/components/Card/Card";
 import Button from "src/components/Button";
 
@@ -16,11 +16,11 @@ export default function ProductCard({
   addToCart,
   ...rest
 }: ProductCardProps) {
-  const { title, rating, tag, enrollment, price } = product;
+  const { title, rating, img, tag, enrollment, price } = product;
   return (
     <Card cursor="pointer" className="card" key={title} {...rest}>
       <div className="card-media">
-        <img loading="lazy" src={Course1} alt="course" />
+        <img loading="lazy" src={img} alt="course" />
       </div>
       <div className="card-body">
         <div className="tags flex flex-space-between">
