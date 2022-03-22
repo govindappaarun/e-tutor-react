@@ -1,6 +1,6 @@
 type alignOptions = "start" | "end" | "center";
 
-export type Flex = "flex" | "inline-flex";
+export type Display = "flex" | "inline-flex" | "block" | "inline-block";
 
 export type JC = "start" | "end" | "center" | "space-between" | "space-around";
 

@@ -7,6 +7,7 @@ export type BadgeProps = {
   size?: SizeTypes;
   color?: ColorTypes;
   children?: React.ReactNode;
+  className?: string;
 };
 
 export default function Badge({

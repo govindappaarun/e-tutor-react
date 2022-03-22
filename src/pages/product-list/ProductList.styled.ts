@@ -58,4 +58,16 @@ export const Wrapper = styled.div`
   .flex-shrink-0 {
     flex-shrink: 0;
   }
+
+  .product-card {
+    &:hover {
+      .add-to-cart {
+        visibility: visible;
+      }
+    }
+  }
+
+  .add-to-cart {
+    visibility: hidden;
+  }
 `;
