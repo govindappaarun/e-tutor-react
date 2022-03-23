@@ -1,8 +1,9 @@
 import clsx from "clsx";
-import React from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 import { ColorTypes, SizeTypes } from "../types/types";
 import StyledButton from "./Button.styled";
+import { ButtonTypes } from "./types";
 
 export type ButtonProps = {
   size?: SizeTypes;
@@ -12,17 +13,19 @@ export type ButtonProps = {
   onClick?: () => void;
   className?: string;
   outline?: boolean;
+  type?: ButtonTypes;
 };
 
-const Button = ({
+const Button: FC<ButtonProps> = ({
   children,
   color = "info",
   className,
+  type,
   ...rest
 }: ButtonProps) => {
   const classNames = clsx(className, color);
   return (
-    <StyledButton className={classNames} color={color} {...rest}>
+    <StyledButton type={type} className={classNames} color={color} {...rest}>
       {children}
     </StyledButton>
   );

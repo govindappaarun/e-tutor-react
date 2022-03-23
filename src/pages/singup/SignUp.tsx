@@ -8,8 +8,32 @@ import Typography from "src/components/Typography/Typography";
 import Input from "src/components/Input";
 import Checkbox from "src/components/Checkbox";
 import Button from "src/components/Button";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "src/hooks/useForm";
+import axios from "axios";
 
 export default function SingnUp() {
+  const navigate = useNavigate();
+
+  const initialState = {
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: "",
+  };
+
+  const { onChange, onSubmit, values } = useForm(async () => {
+    try {
+      const result = await axios.post("/api/auth/signup", { ...values });
+      if (result.status === 201) {
+        console.log(result.data);
+        navigate("/login");
+      }
+    } catch (err) {
+      console.log({ err });
+    }
+  }, initialState);
+
   return (
     <Wrapper>
       <Header />
@@ -30,56 +54,61 @@ export default function SingnUp() {
           >
             Create Your Account
           </Typography>
-          <form action="#" className="flex-column flex-gap">
+          <form action="#" className="flex-column flex-gap" onSubmit={onSubmit}>
             <div className="flex flex-gap-2">
               <Input
                 placeholder="First Name"
-                className="input-wrapper flex-grow-1"
+                name="firstName"
+                onChange={onChange}
+                className="my-1 flex-grow-1"
               >
                 <label>First Name</label>
               </Input>
 
               <Input
                 placeholder="Last Name"
-                className="input-wrapper flex-grow-1"
+                name="lastName"
+                onChange={onChange}
+                className="my-1 flex-grow-1"
               >
                 <label>Last Name</label>
               </Input>
             </div>
 
-            <Input placeholder="User Name" className="input-wrapper">
-              <label>User Name</label>
-            </Input>
-
             <Input
-              type="password"
               placeholder="Email Address"
-              className="input-wrapper"
+              name="email"
+              onChange={onChange}
+              className="my-1"
             >
               <label>Email</label>
             </Input>
 
-            <div className="flex flex-gap-2">
-              <Input
-                type="password"
-                placeholder="Create Password"
-                className="input-wrapper flex-grow-1"
-              >
-                <label>Password</label>
-              </Input>
+            <Input
+              type="password"
+              name="password"
+              onChange={onChange}
+              placeholder="Create Password"
+              className="my-1 flex-grow-1"
+            >
+              <label>Password</label>
+            </Input>
 
-              <Input
-                placeholder="Confirm Password"
-                className="input-wrapper flex-grow-1"
-              >
-                <label>Confirm Password</label>
-              </Input>
-            </div>
+            <Input
+              type="password"
+              name="confirmPassword"
+              onChange={onChange}
+              placeholder="Confirm Password"
+              className="my-1 flex-grow-1"
+            >
+              <label>Confirm Password</label>
+            </Input>
 
             <Box
               display="flex"
               alignItems="center"
               justifyContent="space-between"
+              className="my-1"
             >
               <Checkbox label="Remember Me" />
 

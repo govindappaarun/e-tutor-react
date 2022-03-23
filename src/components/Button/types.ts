@@ -5,3 +5,5 @@ export enum ButtonSize {
   sm = "1.5rem",
   xs = "1rem",
 }
+
+export type ButtonTypes = "button" | "reset" | "submit";

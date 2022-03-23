@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../header";
 import { Wrapper } from "./Login.styled";
 import ComputerDesk from "src/assets/media/computer-desk.png";
@@ -8,8 +8,31 @@ import Checkbox from "src/components/Checkbox";
 import Button from "src/components/Button";
 import Typography from "src/components/Typography/Typography";
 import Image from "src/components/Image/Image";
+import axios from "axios";
+import { useForm } from "src/hooks/useForm";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  const initialState = {
+    email: "",
+    password: "",
+  };
+
+  const { onChange, onSubmit, values } = useForm(async () => {
+    try {
+      const result = await axios.post("/api/auth/login", { ...values });
+      if (result.status === 200) {
+        console.log(result.data);
+        // result.data.token
+        navigate("/home");
+      }
+    } catch (err) {
+      console.log({ err });
+    }
+  }, initialState);
+
   return (
     <Wrapper>
       <Header />
@@ -26,12 +49,21 @@ export default function Login() {
           <Typography variant="h1" className="text-center secondary">
             Sign In To Your Account
           </Typography>
-          <form action="#" className="flex-column flex-gap">
-            <Input placeholder="Email Address" className="input-wrapper">
+          <form action="#" className="flex-column flex-gap" onSubmit={onSubmit}>
+            <Input
+              placeholder="Email Address"
+              className="my-2"
+              name="email"
+              onChange={onChange}
+            >
               <label>Email</label>
             </Input>
-
-            <Input placeholder="Create Password">
+            <Input
+              placeholder="Create Password"
+              className="my-2"
+              name="password"
+              onChange={onChange}
+            >
               <label>Password</label>
             </Input>
 
@@ -39,6 +71,7 @@ export default function Login() {
               display="flex"
               alignItems="center"
               justifyContent="space-between"
+              className="my-1"
             >
               <Checkbox label="Remember Me" />
 

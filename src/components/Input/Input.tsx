@@ -8,6 +8,8 @@ export type InputProps = {
   className?: string;
   min?: number;
   max?: number;
+  name?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function Input({
@@ -16,6 +18,8 @@ export default function Input({
   children,
   min,
   max,
+  name,
+  onChange,
   ...rest
 }: InputProps) {
   return (
@@ -26,6 +30,8 @@ export default function Input({
         placeholder={placeholder}
         min={min}
         max={max}
+        name={name}
+        onChange={onChange}
       />
     </StyledInput>
   );
