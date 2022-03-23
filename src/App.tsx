@@ -1,13 +1,7 @@
 import React from "react";
-import Button from "./components/Button";
 
 function App() {
-  return (
-    <div className="App">
-      Hello React!, I am coming
-      <Button />
-    </div>
-  );
+  return <div>Hello World</div>;
 }
 
 export default App;

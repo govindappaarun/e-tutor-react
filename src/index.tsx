@@ -4,10 +4,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./globalStyle";
+import { makeServer } from "./server";
+import theme from "./theme/theme";
+import "./index.css";
+
+makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={{ color: "blue" }}>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <App />
     </ThemeProvider>
