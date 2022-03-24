@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useRoutes } from "react-router-dom";
 import LoginPage from "./pages/login";
 import SignUpPage from "./pages/singup";
 import WelComePage from "./pages/welcome";
@@ -13,31 +13,28 @@ const NoMatch = () => <h3>404 - No matching route found</h3>;
 const isAuthenticated = true;
 
 const publicRoutes = [
-  { path: "/", name: <WelComePage /> },
-  { path: "/home", name: <ProductList /> },
-  { path: "/signup", name: <SignUpPage /> },
-  { path: "/login", name: <LoginPage /> },
-  { path: "/test", name: <TestPage /> },
-  { path: "*", name: <NoMatch /> },
+  { path: "/", element: <WelComePage /> },
+  { path: "/home", element: <ProductList /> },
+  { path: "/signup", element: <SignUpPage /> },
+  { path: "/login", element: <LoginPage /> },
+  { path: "/test", element: <TestPage /> },
+  { path: "*", element: <NoMatch /> },
 ];
 
 const privateRoutes = [
-  { path: "/product-list", name: <ProductList /> },
-  { path: "/product/:id", name: <ProductInfo /> },
-  { path: "/cart", name: <Cart /> },
-  { path: "/wishlist", name: <Wishlist /> },
+  {
+    path: "/products",
+    element: <ProductList />,
+  },
+  { path: "product/:id", element: <ProductInfo /> },
+  { path: "/cart", element: <Cart /> },
+  { path: "/wishlist", element: <Wishlist /> },
 ];
 
 const AppRouter = () => {
   const appRoutes = publicRoutes.concat(isAuthenticated ? privateRoutes : []);
 
-  return (
-    <Routes>
-      {appRoutes.map((route) => (
-        <Route key={route.name} path={route.path} element={route.name} />
-      ))}
-    </Routes>
-  );
+  return useRoutes(appRoutes);
 };
 
 export default AppRouter;
