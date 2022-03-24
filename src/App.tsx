@@ -1,21 +1,15 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./app-router";
-import { CartProvider } from "./contexts/cartContext";
-import { ProductFilterProvider } from "./contexts/productFilterContext";
-import { ThemeProvider } from "./contexts/themeContext";
+import { Provider } from "./contexts";
 
 function App() {
   return (
-    <ThemeProvider>
+    <Provider>
       <BrowserRouter>
-        <CartProvider>
-          <ProductFilterProvider>
-            <AppRouter />
-          </ProductFilterProvider>
-        </CartProvider>
+        <AppRouter />
       </BrowserRouter>
-    </ThemeProvider>
+    </Provider>
   );
 }
 

@@ -13,7 +13,7 @@ import Typography from "src/components/Typography/Typography";
 import { instructors } from "./product-data";
 import Card from "src/components/Card";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "src/contexts/cartContext";
+import { useCart } from "src/contexts";
 import ProductFilter from "./Components/ProductFilter";
 
 export default function ProductList() {

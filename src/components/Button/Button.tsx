@@ -1,11 +1,11 @@
 import clsx from "clsx";
-import React, { FC } from "react";
+import React, { FC, ButtonHTMLAttributes } from "react";
 import styled from "styled-components";
 import { ColorTypes, SizeTypes } from "../types/types";
 import StyledButton from "./Button.styled";
 import { ButtonTypes } from "./types";
 
-export type ButtonProps = {
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: SizeTypes;
   color?: ColorTypes;
   disabled?: boolean;
@@ -13,19 +13,17 @@ export type ButtonProps = {
   onClick?: () => void;
   className?: string;
   outline?: boolean;
-  type?: ButtonTypes;
 };
 
 const Button: FC<ButtonProps> = ({
   children,
   color = "info",
   className,
-  type,
   ...rest
 }: ButtonProps) => {
   const classNames = clsx(className, color);
   return (
-    <StyledButton type={type} className={classNames} color={color} {...rest}>
+    <StyledButton className={classNames} color={color} {...rest}>
       {children}
     </StyledButton>
   );

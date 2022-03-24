@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Box from "src/components/Box";
 import Button from "src/components/Button";
 import Typography from "src/components/Typography";
-import { useCart } from "src/contexts/cartContext";
+import { useCart } from "src/contexts";
 import Footer from "src/pages/footer";
 import Header from "src/pages/header";
 import { Product } from "../types";

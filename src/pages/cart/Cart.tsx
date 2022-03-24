@@ -2,7 +2,7 @@ import React from "react";
 import Button from "src/components/Button";
 import Card from "src/components/Card";
 import Typography from "src/components/Typography";
-import { useCart } from "src/contexts/cartContext";
+import { useCart } from "src/contexts";
 import Footer from "../footer";
 import Header from "../header";
 import { Product } from "../product-list/types";

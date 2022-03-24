@@ -6,7 +6,7 @@ import Logo from "src/assets/media/logo-cap.png";
 import Box from "src/components/Box";
 import { useNavigate } from "react-router-dom";
 import Typography from "src/components/Typography/Typography";
-import { useCart } from "src/contexts/cartContext";
+import { useCart } from "src/contexts";
 import { CartIcon, WishIcon } from "src/components/Icon";
 import Badge from "src/components/Badge";
 export type HeaderProps = {};
