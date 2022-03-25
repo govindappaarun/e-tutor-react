@@ -1,12 +1,15 @@
 import React from "react";
-import Button from "./components/Button";
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./app-router";
+import { Provider } from "./contexts";
 
 function App() {
   return (
-    <div className="App">
-      Hello React!, I am coming
-      <Button />
-    </div>
+    <Provider>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </Provider>
   );
 }
 
