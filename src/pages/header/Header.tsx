@@ -14,10 +14,10 @@ export type HeaderProps = {};
 export default function Header({ ...rest }: HeaderProps) {
   const navigate = useNavigate();
   const { state } = useCart();
-  const { authState, authDispatch } = useAuth();
+  const { authState, signOut } = useAuth();
 
   const doLogout = () => {
-    authDispatch({ type: "DO_LOGOUT" });
+    signOut();
     navigate("/login");
   };
 
