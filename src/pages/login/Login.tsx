@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../header";
 import { Wrapper } from "./Login.styled";
 import ComputerDesk from "src/assets/media/computer-desk.png";
@@ -11,9 +11,17 @@ import Image from "src/components/Image/Image";
 import axios from "axios";
 import { useForm } from "src/hooks/useForm";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "src/contexts";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { authState, authDispatch } = useAuth();
+
+  useEffect(() => {
+    if (authState.isLoggedIn) {
+      navigate("/home"); // auto redirect to home if logged in
+    }
+  }, [authState.isLoggedIn]);
 
   const initialState = {
     email: "",
@@ -25,7 +33,10 @@ export default function Login() {
       const result = await axios.post("/api/auth/login", { ...values });
       if (result.status === 200) {
         console.log(result.data);
-        // result.data.token
+        // save to localstorage
+        localStorage.setItem("token", result.data.encodedToken);
+        localStorage.setItem("user", JSON.stringify(result.data.foundUser));
+        authDispatch({ type: "DO_LOGIN", payload: result.data.foundUser });
         navigate("/home");
       }
     } catch (err) {
