@@ -1,6 +1,7 @@
 import Box from "src/components/Box";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { HeaderProps } from "./Header";
+import { RiContrastFill } from "react-icons/ri";
 
 export const Wrapper = styled(Box)<HeaderProps>`
   .brand-container {
@@ -24,5 +25,19 @@ export const Wrapper = styled(Box)<HeaderProps>`
     padding: 5px;
     margin: 10px 15px;
     cursor: pointer;
+  }
+`;
+
+export const ThemeIcon = styled(RiContrastFill)`
+  font-size: 2rem;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &.reverse {
+    transform: rotate(-180deg);
   }
 `;

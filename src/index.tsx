@@ -2,20 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ThemeProvider } from "styled-components";
+
 import { GlobalStyle } from "./globalStyle";
 import { makeServer } from "./server";
 import theme from "./theme/theme";
 import "./index.css";
+import { Provider } from "./contexts";
 
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <Provider>
       <GlobalStyle />
       <App />
-    </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

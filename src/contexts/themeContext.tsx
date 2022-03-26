@@ -1,5 +1,6 @@
 import React, { useState, createContext, useContext } from "react";
-
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
+import themes from "../theme/theme";
 type Theme = "dark" | "light";
 
 interface ThemContextInterface {
@@ -11,10 +12,15 @@ interface Props {
   children: React.ReactNode;
 }
 
-const ThemeContext = createContext<ThemContextInterface | null>(null);
+const ThemeContext = createContext<ThemContextInterface>(
+  {} as ThemContextInterface
+);
+ThemeContext.displayName = "CustomThemeProvider";
 
 const ThemeProvider = ({ children }: Props) => {
   const [theme, setTheme] = useState<Theme>("light");
+
+  const themeObj = themes[theme];
 
   const toggleTheme = (): void => {
     let nextTheme: Theme = theme === "dark" ? "light" : "dark";
@@ -24,7 +30,7 @@ const ThemeProvider = ({ children }: Props) => {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
+      <StyledThemeProvider theme={themeObj}>{children}</StyledThemeProvider>
     </ThemeContext.Provider>
   );
 };
