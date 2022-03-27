@@ -10,7 +10,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   color?: ColorTypes;
   disabled?: boolean;
   children?: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
   className?: string;
   outline?: boolean;
 };
@@ -39,6 +39,16 @@ export const LinkButton = styled(Button)`
     text-decoration: underline;
     box-shadow: none;
     transform: none;
+  }
+`;
+
+export const IconButton = styled(Button)`
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  &:hover {
+    transform: none;
+    box-shadow: none;
   }
 `;
 

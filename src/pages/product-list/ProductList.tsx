@@ -4,7 +4,7 @@ import axios from "axios";
 import Header from "../header";
 import Footer from "../footer";
 import { Category, Product } from "./types";
-import ProductCard from "./Components/ProductCard";
+import ProductCard from "./Components/Product";
 import Box from "src/components/Box";
 import Button from "src/components/Button";
 import Input from "src/components/Input";
@@ -54,6 +54,13 @@ export default function ProductList() {
     dispatch({ type: "ADD_TO_CART", payload: { item: product } });
   };
 
+  const addToWishlist = (product: Product) => {
+    dispatch({ type: "MOVE_TO_WISHLIST", payload: { item: product } });
+  };
+
+  const removeFromWishlist = (product: Product) => {
+    dispatch({ type: "REMOVE_FROM_WISHLIST", payload: { item: product } });
+  };
   return (
     <React.Fragment>
       <Wrapper>
@@ -102,7 +109,7 @@ export default function ProductList() {
                   </Badge>
                 ))}
               <Typography variant="h5" className="ml-auto">
-                3,145,684 results find for “ui/ux design”
+                {/* 3,145,684 results find for “ui/ux design” */}
               </Typography>
             </Box>
           </header>
@@ -115,6 +122,8 @@ export default function ProductList() {
                   key={index}
                   product={product}
                   addToCart={addToCart}
+                  addToWishlist={addToWishlist}
+                  removeFromWishlist={removeFromWishlist}
                   onClick={() => navigate(`/product/${product._id}`)}
                 />
               ))}

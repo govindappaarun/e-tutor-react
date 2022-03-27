@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import { RiHeartFill, RiHeartLine } from "react-icons/ri";
+import { Card } from "src/components";
+import { CardPropsType } from "src/components/Card";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   .container {
@@ -68,5 +71,38 @@ export const Wrapper = styled.div`
 
   .add-to-cart {
     visibility: hidden;
+  }
+`;
+
+export const WishIcon = styled(RiHeartLine)`
+  font-size: 2rem;
+  cursor: pointer;
+  color: ${(props) => props.theme.success.main};
+
+  transition: opacity 0.3s ease-in-out;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+export const WishIconSolid = styled(RiHeartFill)`
+  fill: ${(p) => p.theme.success.main};
+  font-size: 2rem;
+`;
+
+export const ProductCard = styled(Card)<CardPropsType>`
+  .wish-icon {
+    position: absolute;
+    right: 2rem;
+  }
+
+  .visible {
+    visibility: hidden;
+  }
+
+  &:hover {
+    .visible {
+      visibility: visible;
+    }
   }
 `;
