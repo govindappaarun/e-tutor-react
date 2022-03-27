@@ -27,6 +27,11 @@ export default function Product({
       (item: ProductType) => item._id === product._id
     );
   };
+
+  const isInCart = (product: ProductType): boolean => {
+    return !!state.cart.find((item: ProductType) => item._id === product._id);
+  };
+
   return (
     <ProductCard cursor="pointer" className="card" key={title} {...rest}>
       <div className="card-media">
@@ -68,17 +73,19 @@ export default function Product({
           <i className="fas fa-user"></i>
           {enrollment}
         </div>
-        <Button
-          className="add-to-cart my-1"
-          outline
-          color="warning"
-          onClick={() => {
-            // e.stopPropagation();
-            addToCart(product);
-          }}
-        >
-          Add to Cart
-        </Button>
+        {!isInCart(product) && (
+          <Button
+            className="add-to-cart my-1"
+            outline
+            color="warning"
+            onClick={(e) => {
+              e.stopPropagation();
+              addToCart(product);
+            }}
+          >
+            Add to Cart
+          </Button>
+        )}
       </div>
     </ProductCard>
   );
