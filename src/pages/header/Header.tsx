@@ -85,7 +85,7 @@ export default function Header({ ...rest }: HeaderProps) {
             </>
           ) : (
             <>
-              {location.pathname.includes("login") && (
+              {!location.pathname.includes("signup") && (
                 <Button
                   onClick={() => navigate("/signup")}
                   color="warning"
@@ -96,7 +96,7 @@ export default function Header({ ...rest }: HeaderProps) {
                 </Button>
               )}
 
-              {location.pathname.includes("signup") && (
+              {!location.pathname.includes("login") && (
                 <Button
                   onClick={() => navigate("/login")}
                   color="primary"
