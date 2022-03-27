@@ -6,7 +6,6 @@ import Rocket from "src/assets/media/rocket.png";
 import Box from "src/components/Box";
 import Typography from "src/components/Typography/Typography";
 import Input from "src/components/Input";
-import Checkbox from "src/components/Checkbox";
 import Button from "src/components/Button";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "src/hooks/useForm";
@@ -110,10 +109,8 @@ export default function SingnUp() {
               justifyContent="space-between"
               className="my-1"
             >
-              <Checkbox label="Remember Me" />
-
-              <Button color="warning" outline>
-                Create Account <i className="fas fa-chevron-right"></i>
+              <Button color="warning" outline className="my-1">
+                Create Account
               </Button>
             </Box>
           </form>

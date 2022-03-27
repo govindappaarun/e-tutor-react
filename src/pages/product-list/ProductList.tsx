@@ -15,6 +15,7 @@ import Card from "src/components/Card";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "src/contexts";
 import ProductFilter from "./Components/ProductFilter";
+import { RiArrowDownSLine, RiSoundModuleLine } from "react-icons/ri";
 
 export default function ProductList() {
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ export default function ProductList() {
               className="actions p-20"
             >
               <Button size="lg" outline color="primary">
-                <i className="fas fa-sliders-h btn-icon"></i> Filter
+                Filter <RiSoundModuleLine className="icon fs-1" />
               </Button>
               <Input
                 className="input-wrapper with-icon"
@@ -83,7 +84,7 @@ export default function ProductList() {
                 <Typography variant="h3">Sort By</Typography>
                 <Button color="error" size="lg" outline>
                   Trending
-                  <i className="fas fa-angle-down"></i>
+                  <RiArrowDownSLine className="icon fs-2" />
                 </Button>
               </Box>
             </Box>

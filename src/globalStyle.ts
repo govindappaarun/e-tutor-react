@@ -16,4 +16,17 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  .icon {
+    margin: 0.2 rem;
+  }
+  
+  .fs-1 {
+    font-size: 1rem;
+  }
+
+  .fs-2 {
+    font-size: 2rem;
+  }
+
 `;

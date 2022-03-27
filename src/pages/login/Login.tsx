@@ -4,7 +4,6 @@ import { Wrapper } from "./Login.styled";
 import ComputerDesk from "src/assets/media/computer-desk.png";
 import Box from "src/components/Box";
 import Input from "src/components/Input";
-import Checkbox from "src/components/Checkbox";
 import Button from "src/components/Button";
 import Typography from "src/components/Typography/Typography";
 import Image from "src/components/Image/Image";
@@ -84,8 +83,6 @@ export default function Login() {
               justifyContent="space-between"
               className="my-1"
             >
-              <Checkbox label="Remember Me" />
-
               <Button color="warning" outline>
                 Sign In <i className="fas fa-chevron-right"></i>
               </Button>

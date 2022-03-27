@@ -4,7 +4,7 @@ import { Wrapper } from "./Header.styled";
 import Button from "src/components/Button";
 import Logo from "src/assets/media/logo-cap.png";
 import Box from "src/components/Box";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Typography from "src/components/Typography/Typography";
 import { useAuth, useCart, useTheme } from "src/contexts";
 import { CartIcon, WishIcon } from "src/components/Icon";
@@ -15,6 +15,7 @@ export type HeaderProps = {};
 
 export default function Header({ ...rest }: HeaderProps) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { state } = useCart();
   const { authState, signOut } = useAuth();
   const { theme, toggleTheme } = useTheme();
@@ -84,21 +85,26 @@ export default function Header({ ...rest }: HeaderProps) {
             </>
           ) : (
             <>
-              <Button
-                onClick={() => navigate("/signup")}
-                color="warning"
-                outline
-                className="btn btn-link btn-link-warning"
-              >
-                Create Account
-              </Button>
-              <Button
-                onClick={() => navigate("/login")}
-                color="primary"
-                className="btn btn-warning"
-              >
-                Sign In
-              </Button>
+              {location.pathname.includes("login") && (
+                <Button
+                  onClick={() => navigate("/signup")}
+                  color="warning"
+                  outline
+                  className="btn btn-link btn-link-warning"
+                >
+                  Create Account
+                </Button>
+              )}
+
+              {location.pathname.includes("signup") && (
+                <Button
+                  onClick={() => navigate("/login")}
+                  color="primary"
+                  className="btn btn-warning"
+                >
+                  Sign In
+                </Button>
+              )}
             </>
           )}
         </div>
