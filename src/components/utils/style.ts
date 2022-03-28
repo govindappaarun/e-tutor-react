@@ -1,31 +1,30 @@
 import { css } from "styled-components";
-import theme from "../../theme/theme";
 
 const StyleType = {
   primary: css`
-    background-color: ${theme.primary.main};
-    color: ${theme.primary.contrastText};
+    background-color: ${(p) => p.theme.primary.main};
+    color: ${(p) => p.theme.primary.contrastText};
   `,
   secondary: css`
-    background-color: ${theme.secondary.main};
-    color: ${theme.secondary.contrastText};
-    border: 1px solid ${theme.secondary.contrastText};
+    background-color: ${(p) => p.theme.secondary.main};
+    color: ${(p) => p.theme.secondary.contrastText};
+    border: 1px solid ${(p) => p.theme.secondary.contrastText};
   `,
   warning: css`
-    background-color: ${theme.warning.main};
-    color: ${theme.white};
+    background-color: ${(p) => p.theme.warning.main};
+    color: ${(p) => p.theme.white};
   `,
   error: css`
-    background-color: ${theme.error.main};
-    color: ${theme.white};
+    background-color: ${(p) => p.theme.error.main};
+    color: ${(p) => p.theme.white};
   `,
   success: css`
-    background-color: ${theme.success.main};
-    color: ${theme.white};
+    background-color: ${(p) => p.theme.success.main};
+    color: ${(p) => p.theme.white};
   `,
   info: css`
-    background-color: ${theme.info.main};
-    color: ${theme.white};
+    background-color: ${(p) => p.theme.info.main};
+    color: ${(p) => p.theme.white};
   `,
 };
 

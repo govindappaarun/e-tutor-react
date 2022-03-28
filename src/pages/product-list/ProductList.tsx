@@ -4,7 +4,7 @@ import axios from "axios";
 import Header from "../header";
 import Footer from "../footer";
 import { Category, Product } from "./types";
-import ProductCard from "./Components/ProductCard";
+import ProductCard from "./Components/Product";
 import Box from "src/components/Box";
 import Button from "src/components/Button";
 import Input from "src/components/Input";
@@ -15,6 +15,7 @@ import Card from "src/components/Card";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "src/contexts";
 import ProductFilter from "./Components/ProductFilter";
+import { RiArrowDownSLine, RiSoundModuleLine } from "react-icons/ri";
 
 export default function ProductList() {
   const navigate = useNavigate();
@@ -53,6 +54,13 @@ export default function ProductList() {
     dispatch({ type: "ADD_TO_CART", payload: { item: product } });
   };
 
+  const addToWishlist = (product: Product) => {
+    dispatch({ type: "MOVE_TO_WISHLIST", payload: { item: product } });
+  };
+
+  const removeFromWishlist = (product: Product) => {
+    dispatch({ type: "REMOVE_FROM_WISHLIST", payload: { item: product } });
+  };
   return (
     <React.Fragment>
       <Wrapper>
@@ -66,7 +74,7 @@ export default function ProductList() {
               className="actions p-20"
             >
               <Button size="lg" outline color="primary">
-                <i className="fas fa-sliders-h btn-icon"></i> Filter
+                Filter <RiSoundModuleLine className="icon fs-1" />
               </Button>
               <Input
                 className="input-wrapper with-icon"
@@ -83,7 +91,7 @@ export default function ProductList() {
                 <Typography variant="h3">Sort By</Typography>
                 <Button color="error" size="lg" outline>
                   Trending
-                  <i className="fas fa-angle-down"></i>
+                  <RiArrowDownSLine className="icon fs-2" />
                 </Button>
               </Box>
             </Box>
@@ -101,7 +109,7 @@ export default function ProductList() {
                   </Badge>
                 ))}
               <Typography variant="h5" className="ml-auto">
-                3,145,684 results find for “ui/ux design”
+                {/* 3,145,684 results find for “ui/ux design” */}
               </Typography>
             </Box>
           </header>
@@ -114,6 +122,8 @@ export default function ProductList() {
                   key={index}
                   product={product}
                   addToCart={addToCart}
+                  addToWishlist={addToWishlist}
+                  removeFromWishlist={removeFromWishlist}
                   onClick={() => navigate(`/product/${product._id}`)}
                 />
               ))}

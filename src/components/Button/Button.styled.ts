@@ -7,6 +7,7 @@ const Button = styled.button<ButtonProps>`
   border: none;
   outline: 0;
   display: inline-flex;
+  align-items: center;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.1rem;

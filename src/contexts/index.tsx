@@ -1,4 +1,5 @@
 import { CartProvider, useCart } from "./cartContext";
+import { AuthProvider, useAuth } from "./authContext";
 import { ProductFilterProvider, useFilter } from "./productFilterContext";
 import { ThemeProvider, useTheme } from "./themeContext";
 
@@ -8,12 +9,14 @@ interface Props {
 
 const Provider = ({ children }: Props) => {
   return (
-    <ThemeProvider>
-      <CartProvider>
-        <ProductFilterProvider>{children}</ProductFilterProvider>
-      </CartProvider>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <CartProvider>
+          <ProductFilterProvider>{children}</ProductFilterProvider>
+        </CartProvider>
+      </ThemeProvider>
+    </AuthProvider>
   );
 };
 
-export { Provider, useCart, useFilter, useTheme };
+export { Provider, useCart, useFilter, useTheme, useAuth };

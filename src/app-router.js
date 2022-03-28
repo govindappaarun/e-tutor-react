@@ -7,10 +7,9 @@ import ProductList from "./pages/product-list";
 import Cart from "./pages/cart";
 import Wishlist from "./pages/wishlist";
 import ProductInfo from "./pages/product-list/Components/ProductInfo";
+import { useAuth } from "./contexts";
 
 const NoMatch = () => <h3>404 - No matching route found</h3>;
-
-const isAuthenticated = true;
 
 const publicRoutes = [
   { path: "/", element: <WelComePage /> },
@@ -21,6 +20,7 @@ const publicRoutes = [
   { path: "*", element: <NoMatch /> },
 ];
 
+// const isAuthenticated = true;
 const privateRoutes = [
   {
     path: "/products",
@@ -32,7 +32,11 @@ const privateRoutes = [
 ];
 
 const AppRouter = () => {
-  const appRoutes = publicRoutes.concat(isAuthenticated ? privateRoutes : []);
+  const { authState } = useAuth();
+  console.log({ authState });
+  const appRoutes = publicRoutes.concat(
+    authState.isLoggedIn ? privateRoutes : []
+  );
 
   return useRoutes(appRoutes);
 };

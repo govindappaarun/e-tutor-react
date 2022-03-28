@@ -4,16 +4,27 @@ import { Wrapper } from "./Header.styled";
 import Button from "src/components/Button";
 import Logo from "src/assets/media/logo-cap.png";
 import Box from "src/components/Box";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Typography from "src/components/Typography/Typography";
-import { useCart } from "src/contexts";
+import { useAuth, useCart, useTheme } from "src/contexts";
 import { CartIcon, WishIcon } from "src/components/Icon";
 import Badge from "src/components/Badge";
+import { ThemeIcon } from "./Header.styled";
+import clsx from "clsx";
 export type HeaderProps = {};
 
 export default function Header({ ...rest }: HeaderProps) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { state } = useCart();
+  const { authState, signOut } = useAuth();
+  const { theme, toggleTheme } = useTheme();
+
+  const doLogout = () => {
+    signOut();
+    navigate("/login");
+  };
+
   return (
     <Wrapper as="header" {...rest}>
       <Navbar
@@ -35,41 +46,67 @@ export default function Header({ ...rest }: HeaderProps) {
         </div>
 
         <div className="nav-right flex-gap-2">
-          <Box
-            className="icon-container"
-            display="inline-block"
-            onClick={() => navigate("/cart")}
-          >
-            <CartIcon color="warning" />
-            <Badge color="warning" className="badge">
-              {state.quantity}
-            </Badge>
-          </Box>
-          <Box
-            className="icon-container"
-            display="inline-block"
-            onClick={() => navigate("/wishlist")}
-          >
-            <Badge color="success" className="badge">
-              {state.wishList ? state.wishList.length : 0}
-            </Badge>
-            <WishIcon />
-          </Box>
-          <Button
-            onClick={() => navigate("/signup")}
-            color="warning"
-            outline
-            className="btn btn-link btn-link-warning"
-          >
-            Create Account
-          </Button>
-          <Button
-            onClick={() => navigate("/login")}
-            color="primary"
-            className="btn btn-warning"
-          >
-            Sign In
-          </Button>
+          {authState.isLoggedIn ? (
+            <>
+              <Box
+                className="icon-container"
+                display="inline-block"
+                onClick={() => navigate("/cart")}
+              >
+                <CartIcon color="warning" />
+                <Badge color="warning" className="badge">
+                  {state.quantity}
+                </Badge>
+              </Box>
+              <Box
+                className="icon-container"
+                display="inline-block"
+                onClick={() => navigate("/wishlist")}
+              >
+                <Badge color="success" className="badge">
+                  {state.wishList ? state.wishList.length : 0}
+                </Badge>
+                <WishIcon />
+              </Box>
+              <ThemeIcon
+                className={clsx("mx-1", { reverse: theme === "dark" })}
+                onClick={toggleTheme}
+              >
+                {theme}
+              </ThemeIcon>
+              <Button
+                onClick={doLogout}
+                color="warning"
+                outline
+                className="btn btn-link btn-link-warning"
+              >
+                Logout
+              </Button>
+            </>
+          ) : (
+            <>
+              {!location.pathname.includes("signup") && (
+                <Button
+                  onClick={() => navigate("/signup")}
+                  color="warning"
+                  outline
+                  className="btn btn-link btn-link-warning"
+                >
+                  Create Account
+                </Button>
+              )}
+
+              {!location.pathname.includes("login") && (
+                <Button
+                  onClick={() => navigate("/login")}
+                  color="primary"
+                  className="btn btn-warning"
+                >
+                  Sign In
+                </Button>
+              )}
+            </>
+          )}
         </div>
       </Navbar>
     </Wrapper>
