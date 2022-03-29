@@ -61,7 +61,7 @@ export default function Login() {
           </Typography>
           <form action="#" className="flex-column flex-gap" onSubmit={onSubmit}>
             <Input
-              placeholder="Email Address"
+              placeholder="Enter Email Address"
               className="my-2"
               name="email"
               onChange={onChange}
@@ -69,7 +69,7 @@ export default function Login() {
               <label>Email</label>
             </Input>
             <Input
-              placeholder="Create Password"
+              placeholder="Enter Password"
               className="my-2"
               name="password"
               onChange={onChange}
