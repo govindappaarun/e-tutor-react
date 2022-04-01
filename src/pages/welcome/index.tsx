@@ -21,7 +21,7 @@ export default function WelComePage() {
             size="lg"
             outline
             onClick={() => {
-              navigate("/products");
+              navigate("/home");
             }}
           >
             Get Started

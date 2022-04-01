@@ -12,6 +12,7 @@ import { useForm } from "src/hooks/useForm";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "src/contexts";
 import InputPassword from "src/components/Input/InputPassword";
+import authService from "src/services/authService";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -29,19 +30,17 @@ export default function Login() {
   };
 
   const { onChange, onSubmit, values } = useForm(async () => {
-    try {
-      const result = await axios.post("/api/auth/login", { ...values });
-      if (result.status === 200) {
-        console.log(result.data);
-        // save to localstorage
-        localStorage.setItem("token", result.data.encodedToken);
-        localStorage.setItem("user", JSON.stringify(result.data.foundUser));
-        authDispatch({ type: "DO_LOGIN", payload: result.data.foundUser });
+    authService
+      .doLogin(values)
+      .then((response) => {
+        localStorage.setItem("token", response.encodedToken);
+        localStorage.setItem("user", JSON.stringify(response.foundUser));
+        authDispatch({ type: "DO_LOGIN", payload: response.foundUser });
         navigate("/home");
-      }
-    } catch (err) {
-      console.log({ err });
-    }
+      })
+      .catch((err) => {
+        console.log({ err });
+      });
   }, initialState);
 
   return (
