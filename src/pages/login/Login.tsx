@@ -11,6 +11,7 @@ import axios from "axios";
 import { useForm } from "src/hooks/useForm";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "src/contexts";
+import InputPassword from "src/components/Input/InputPassword";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -68,15 +69,13 @@ export default function Login() {
             >
               <label>Email</label>
             </Input>
-            <Input
+            <InputPassword
               placeholder="Enter Password"
               className="my-2"
               name="password"
               onChange={onChange}
-            >
-              <label>Password</label>
-            </Input>
-
+              label="Password"
+            />
             <Box
               display="flex"
               alignItems="center"
