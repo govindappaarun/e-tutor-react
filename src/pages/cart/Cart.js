@@ -1,4 +1,5 @@
 import React from "react";
+import { Box } from "src/components";
 import Button from "src/components/Button";
 import Card from "src/components/Card";
 import Typography from "src/components/Typography";
@@ -6,13 +7,12 @@ import { useCart } from "src/contexts";
 import cartService from "src/services/cartService";
 import Footer from "../footer";
 import Header from "../header";
-import { Product } from "../product-list/types";
-import { Wrapper } from "./Cart.styled";
+import { CartCard, Wrapper } from "./Cart.styled";
 
 export default function Cart() {
   const { state, dispatch } = useCart();
 
-  const removeItemFromCart = (item: Product) => {
+  const removeItemFromCart = (item) => {
     cartService.removeFromCart(item).then(() => {
       dispatch({
         type: "REMOVE_FROM_CART",
@@ -21,7 +21,7 @@ export default function Cart() {
     });
   };
 
-  const addToWishList = (item: Product) => {
+  const addToWishList = (item) => {
     cartService.addToWishlist(item).then(() => {
       dispatch({
         type: "MOVE_TO_WISHLIST",
@@ -37,18 +37,27 @@ export default function Cart() {
         <Typography align="center" variant="h1">
           My Cart ({state.quantity})
         </Typography>
-        {state.cart.map((item: Product) => (
-          <Card key={item._id}>
-            <Typography variant="h2">{item.title}</Typography>
-            <div className="card-footer">
+        {state.cart.map((item) => (
+          <CartCard key={item._id}>
+            <div className="card-meida">
+              <img src={item.img} alt={item.title} />
+            </div>
+            <div className="card-body">
+              <div className="text-badge text-xs text-secondary">
+                {item.tag}
+              </div>
+              <div className="h4 price secondary">{item.price}</div>
+              <div className="text-sm py-1">{item.title}</div>
+            </div>
+            <Box display="flex" direction="column" className="card-footer">
               <Button outline onClick={() => removeItemFromCart(item)}>
                 REMOVE FROM CART
               </Button>
               <Button onClick={() => addToWishList(item)}>
                 MOVE TO WISHLIST
               </Button>
-            </div>
-          </Card>
+            </Box>
+          </CartCard>
         ))}
       </main>
       <Footer />

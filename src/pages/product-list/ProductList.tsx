@@ -80,6 +80,10 @@ export default function ProductList() {
     });
   };
 
+  const gotoCart = () => {
+    navigate("/cart");
+  };
+
   return (
     <React.Fragment>
       <Wrapper>
@@ -143,6 +147,7 @@ export default function ProductList() {
                   addToCart={addToCart}
                   addToWishlist={addToWishlist}
                   removeFromWishlist={removeFromWishlist}
+                  gotoCart={gotoCart}
                   onClick={() => navigate(`/product/${product._id}`)}
                 />
               ))}

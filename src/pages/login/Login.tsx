@@ -81,7 +81,7 @@ export default function Login() {
               justifyContent="space-between"
               className="my-1"
             >
-              <Button color="warning" outline>
+              <Button color="primary" outline>
                 Sign In <i className="fas fa-chevron-right"></i>
               </Button>
             </Box>

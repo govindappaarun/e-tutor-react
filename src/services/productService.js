@@ -19,4 +19,12 @@ export default {
       throw error;
     }
   },
+  getProduct: async (id) => {
+    try {
+      const response = await Api.get(`/api/products/${id}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
 };

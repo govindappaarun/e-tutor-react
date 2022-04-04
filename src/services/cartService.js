@@ -21,7 +21,7 @@ export default {
 
   addToWishlist: async (product) => {
     try {
-      const response = await Api.post(`/api/user/wishList`, { product });
+      const response = await Api.post(`/api/user/wishlist`, { product });
       return response.data;
     } catch (error) {
       throw error;
