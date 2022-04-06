@@ -9,7 +9,7 @@ import Input from "src/components/Input";
 import Button from "src/components/Button";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "src/hooks/useForm";
-import axios from "axios";
+import authService from "src/services/authService";
 
 export default function SingnUp() {
   const navigate = useNavigate();
@@ -23,11 +23,14 @@ export default function SingnUp() {
 
   const { onChange, onSubmit, values } = useForm(async () => {
     try {
-      const result = await axios.post("/api/auth/signup", { ...values });
-      if (result.status === 201) {
-        console.log(result.data);
-        navigate("/login");
-      }
+      authService
+        .doSignUp(values)
+        .then(() => {
+          navigate("/login");
+        })
+        .catch((err) => {
+          console.log({ err });
+        });
     } catch (err) {
       console.log({ err });
     }

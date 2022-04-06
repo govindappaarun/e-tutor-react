@@ -14,8 +14,10 @@ import { instructors } from "./product-data";
 import Card from "src/components/Card";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "src/contexts";
-import ProductFilter from "./Components/ProductFilter";
 import { RiArrowDownSLine, RiSoundModuleLine } from "react-icons/ri";
+import ProductFilter from "./Components/ProductFilter";
+import cartService from "src/services/cartService";
+import productService from "src/services/productService";
 
 export default function ProductList() {
   const navigate = useNavigate();
@@ -29,10 +31,10 @@ export default function ProductList() {
   }, []);
 
   const getProducts = () => {
-    axios
-      .get("/api/products")
-      .then(function (response) {
-        setProducts(response.data.products);
+    productService
+      .getProducts()
+      .then((response) => {
+        setProducts(response.products);
       })
       .catch(function (error) {
         console.log(error);
@@ -40,10 +42,10 @@ export default function ProductList() {
   };
 
   const getCategories = () => {
-    axios
-      .get("/api/categories")
-      .then(function (response) {
-        setCategories(response.data.categories);
+    productService
+      .getCategories()
+      .then((response) => {
+        setCategories(response.categories);
       })
       .catch(function (error) {
         console.log(error);
@@ -51,16 +53,37 @@ export default function ProductList() {
   };
 
   const addToCart = (product: Product) => {
-    dispatch({ type: "ADD_TO_CART", payload: { item: product } });
+    cartService
+      .addToCart(product)
+      .then(() => {
+        dispatch({ type: "ADD_TO_CART", payload: { item: product } });
+      })
+      .catch((err) => {
+        console.log({ err });
+      });
   };
 
   const addToWishlist = (product: Product) => {
-    dispatch({ type: "MOVE_TO_WISHLIST", payload: { item: product } });
+    cartService
+      .addToWishlist(product)
+      .then(() => {
+        dispatch({ type: "MOVE_TO_WISHLIST", payload: { item: product } });
+      })
+      .catch((err) => {
+        console.log({ err });
+      });
   };
 
   const removeFromWishlist = (product: Product) => {
-    dispatch({ type: "REMOVE_FROM_WISHLIST", payload: { item: product } });
+    cartService.removeFromWishlist(product).then(() => {
+      dispatch({ type: "REMOVE_FROM_WISHLIST", payload: { item: product } });
+    });
   };
+
+  const gotoCart = () => {
+    navigate("/cart");
+  };
+
   return (
     <React.Fragment>
       <Wrapper>
@@ -124,6 +147,7 @@ export default function ProductList() {
                   addToCart={addToCart}
                   addToWishlist={addToWishlist}
                   removeFromWishlist={removeFromWishlist}
+                  gotoCart={gotoCart}
                   onClick={() => navigate(`/product/${product._id}`)}
                 />
               ))}

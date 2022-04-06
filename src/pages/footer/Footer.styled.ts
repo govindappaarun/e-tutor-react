@@ -6,6 +6,7 @@ export const Wrapper = styled(Box)`
   background-color: ${(p) => p.theme.black};
 
   .footer-container {
+    color: ${(p) => p.theme.white};
     display: flex;
   }
   ul {

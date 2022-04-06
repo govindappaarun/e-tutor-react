@@ -8,16 +8,18 @@ import { useCart } from "src/contexts";
 
 interface ProductCardProps extends Omit<CardProps, "children"> {
   product: ProductType;
-  addToCart: (product: ProductType) => void;
-  addToWishlist: (product: ProductType) => void;
-  removeFromWishlist: (product: ProductType) => void;
+  addToCart?: (product: ProductType) => void;
+  addToWishlist?: (product: ProductType) => void;
+  removeFromWishlist?: (product: ProductType) => void;
+  gotoCart?: () => void;
 }
 
 export default function Product({
   product,
-  addToCart,
-  addToWishlist,
-  removeFromWishlist,
+  addToCart = () => {},
+  addToWishlist = () => {},
+  removeFromWishlist = () => {},
+  gotoCart = () => {},
   ...rest
 }: ProductCardProps) {
   const { title, rating, img, tag, enrollment, price } = product;
@@ -62,6 +64,7 @@ export default function Product({
         <div className="tags flex flex-space-between">
           <div className="text-badge text-xs text-secondary">{tag}</div>
           <div className="h4 price secondary">{price}</div>
+          <div className="text-sm py-1">{title}</div>
         </div>
         <div className="text-sm py-1">{title}</div>
       </div>
@@ -73,7 +76,7 @@ export default function Product({
           <i className="fas fa-user"></i>
           {enrollment}
         </div>
-        {!isInCart(product) && (
+        {!isInCart(product) ? (
           <Button
             className="add-to-cart my-1"
             outline
@@ -84,6 +87,17 @@ export default function Product({
             }}
           >
             Add to Cart
+          </Button>
+        ) : (
+          <Button
+            outline
+            className="my-1"
+            onClick={(e) => {
+              e.stopPropagation();
+              gotoCart();
+            }}
+          >
+            Go to Cart
           </Button>
         )}
       </div>
