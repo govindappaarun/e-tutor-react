@@ -4,27 +4,12 @@ import Box from "src/components/Box";
 export const Wrapper = styled(Box)`
   padding: 2rem;
   background-color: ${(p) => p.theme.black};
+  color: ${(p) => p.theme.white};
+  display: flex;
+`;
 
-  .footer-container {
-    color: ${(p) => p.theme.white};
-    display: flex;
-  }
-  ul {
-    flex-grow: 1;
-  }
-
-  .footer-links li {
-    margin-bottom: 6px;
-    list-style-type: none;
-  }
-
-  .footer-links li:first-child {
-    margin-bottom: 20px;
-    text-transform: uppercase;
-  }
-
-  .footer-links a {
-    color: ${(p) => p.theme.neutral.main};
-    text-decoration: none;
-  }
+export const StyledAnchor = styled.a`
+  color: ${(p) => p.theme.white};
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
 `;

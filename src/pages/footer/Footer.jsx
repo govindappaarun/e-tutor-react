@@ -1,22 +1,19 @@
-import { LinkButton as Link } from "src/components/Button/Button";
-import { Wrapper } from "./Footer.styled";
+import { Wrapper, StyledAnchor } from "./Footer.styled";
 import { BsTwitter, BsGithub } from "react-icons/bs";
+import { Box } from "src/components";
 
 export default function Footer() {
   return (
-    <Wrapper
-      as="footer"
-      display="flex"
-      justifyContent="space-between"
-      alignItems="center"
-    >
-      <div className="footer-container">
-        <div>All rights reserved</div>
-        <div className="ml-auto">
+    <Wrapper as="footer" alignItems="center">
+      <Box>All rights reserved</Box>
+      <Box className="ml-auto">
+        <StyledAnchor href="https://github.com/govindappaarun">
           <BsTwitter />
+        </StyledAnchor>
+        <StyledAnchor href="https://twitter.com/govindappaarun">
           <BsGithub />
-        </div>
-      </div>
+        </StyledAnchor>
+      </Box>
     </Wrapper>
   );
 }
