@@ -8,12 +8,13 @@ import Cart from "./pages/cart";
 import Wishlist from "./pages/wishlist";
 import ProductInfo from "./pages/product-list/Components/ProductInfo";
 import { useAuth } from "./contexts";
+import HomePage from "./pages/home";
 
 const NoMatch = () => <h3>404 - No matching route found</h3>;
 
 const publicRoutes = [
   { path: "/", element: <WelComePage /> },
-  { path: "/home", element: <ProductList /> },
+  { path: "/home", element: <HomePage /> },
   { path: "/signup", element: <SignUpPage /> },
   { path: "/login", element: <LoginPage /> },
   { path: "/test", element: <TestPage /> },

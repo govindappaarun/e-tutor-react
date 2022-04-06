@@ -10,20 +10,30 @@ export const categories = [
     _id: uuid(),
     categoryName: "JavaScript",
     description: "JavaScript",
+    count: 75,
   },
   {
     _id: uuid(),
     categoryName: "Web Development",
     description: "Web Development",
+    count: 100,
   },
   {
     _id: uuid(),
     categoryName: "ReactJs",
     description: "ReactJS",
+    count: 20,
   },
   {
     _id: uuid(),
-    categoryName: "NodeJS",
+    categoryName: "Backend",
     description: "NodeJS and backend",
+    count: 50,
+  },
+  {
+    _id: uuid(),
+    categoryName: "Programming",
+    description: "General Programming & CS fundamentals",
+    count: 100,
   },
 ];

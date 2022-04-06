@@ -6,6 +6,10 @@ export const Wrapper = styled(Box)`
   background-color: ${(p) => p.theme.black};
   color: ${(p) => p.theme.white};
   display: flex;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
 `;
 
 export const StyledAnchor = styled.a`
