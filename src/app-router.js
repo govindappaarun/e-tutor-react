@@ -1,14 +1,13 @@
-import { Routes, Route, useRoutes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 import LoginPage from "./pages/login";
 import SignUpPage from "./pages/singup";
 import WelComePage from "./pages/welcome";
-import TestPage from "./pages/test";
 import ProductList from "./pages/product-list";
 import Cart from "./pages/cart";
 import Wishlist from "./pages/wishlist";
 import ProductInfo from "./pages/product-list/Components/ProductInfo";
-import { useAuth } from "./contexts";
 import HomePage from "./pages/home";
+import SecureRoute from "./SecureRoute";
 
 const NoMatch = () => <h3>404 - No matching route found</h3>;
 
@@ -17,29 +16,54 @@ const publicRoutes = [
   { path: "/home", element: <HomePage /> },
   { path: "/signup", element: <SignUpPage /> },
   { path: "/login", element: <LoginPage /> },
-  { path: "/test", element: <TestPage /> },
   { path: "*", element: <NoMatch /> },
 ];
 
 const privateRoutes = [
   {
     path: "/products",
-    element: <ProductList />,
+    element: (
+      <SecureRoute>
+        <ProductList />
+      </SecureRoute>
+    ),
   },
   {
     path: "/products/:categoryName",
-    element: <ProductList />,
+    element: (
+      <SecureRoute>
+        <ProductList />
+      </SecureRoute>
+    ),
   },
-  { path: "product/:id", element: <ProductInfo /> },
-  { path: "/cart", element: <Cart /> },
-  { path: "/wishlist", element: <Wishlist /> },
+  {
+    path: "product/:id",
+    element: (
+      <SecureRoute>
+        <ProductInfo />
+      </SecureRoute>
+    ),
+  },
+  {
+    path: "/cart",
+    element: (
+      <SecureRoute>
+        <Cart />
+      </SecureRoute>
+    ),
+  },
+  {
+    path: "/wishlist",
+    element: (
+      <SecureRoute>
+        <Wishlist />
+      </SecureRoute>
+    ),
+  },
 ];
 
 const AppRouter = () => {
-  const { authState } = useAuth();
-  const appRoutes = publicRoutes.concat(
-    authState.isLoggedIn ? privateRoutes : []
-  );
+  const appRoutes = [...publicRoutes, ...privateRoutes];
 
   return useRoutes(appRoutes);
 };

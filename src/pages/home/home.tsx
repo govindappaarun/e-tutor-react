@@ -102,7 +102,7 @@ export default function HomePage() {
             {products.length > 0 &&
               products.slice(1, 5).map((product: Product) => {
                 return (
-                  <ProductCard>
+                  <ProductCard key={product._id}>
                     <div className="card-media">
                       <img loading="lazy" src={product.img} alt="course" />
                     </div>
