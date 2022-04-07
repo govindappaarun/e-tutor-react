@@ -61,14 +61,6 @@ export default function HomePage() {
               Create Account
             </Button>
           </Box>
-          {/* <Box grow={1} className="hero-section-right">
-            <img
-              loading="lazy"
-              className="img-responsive"
-              src={Hero}
-              alt="hero sectionimage"
-            />
-          </Box> */}
         </StyledSection>
 
         <StyledSection className="category-section">
@@ -89,7 +81,7 @@ export default function HomePage() {
                 return (
                   <StyledCategory
                     key={_id}
-                    onClick={() => navigate(`/products/${_id}`)}
+                    onClick={() => navigate(`/products/${categoryName}`)}
                   >
                     <Typography variant="title">{categoryName}</Typography>
                     <div>{description}</div>

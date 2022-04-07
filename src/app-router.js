@@ -21,10 +21,13 @@ const publicRoutes = [
   { path: "*", element: <NoMatch /> },
 ];
 
-// const isAuthenticated = true;
 const privateRoutes = [
   {
     path: "/products",
+    element: <ProductList />,
+  },
+  {
+    path: "/products/:categoryName",
     element: <ProductList />,
   },
   { path: "product/:id", element: <ProductInfo /> },
