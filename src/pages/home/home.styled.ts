@@ -40,6 +40,10 @@ export const StyledSection = styled.section`
     display: flex;
     flex-wrap: wrap;
   }
+
+  .mb-8 {
+    margin-bottom: 8rem;
+  }
 `;
 
 export const StyledCategory = styled.div`

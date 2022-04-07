@@ -11,6 +11,7 @@ import { Box, Button, Typography } from "src/components";
 import Hero from "src/assets/media/hero-thumb.jpg";
 import productService from "src/services/productService";
 import { Product } from "../product-list/types";
+import { useNavigate } from "react-router-dom";
 
 export interface Category {
   _id: string;
@@ -21,6 +22,7 @@ export interface Category {
 export default function HomePage() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     productService.getCategories().then((response) => {
@@ -48,11 +50,16 @@ export default function HomePage() {
               Learn with our experts anytime anywhere
             </Typography>
 
-            <Typography variant="subheading2" className="sub-title">
+            <Typography variant="subheading" className="sub-title">
               Our mision is to help people to find the best course online and
               learn with expert anytime, anywhere.
             </Typography>
-            <Button className="btn btn-warning">Create Account</Button>
+            <Button
+              onClick={() => navigate("/signup", { replace: true })}
+              className="btn btn-warning"
+            >
+              Create Account
+            </Button>
           </Box>
           {/* <Box grow={1} className="hero-section-right">
             <img
@@ -77,17 +84,19 @@ export default function HomePage() {
             gap="md"
             className="categories mx-2"
           >
-            {categories.map((category: Category) => {
-              return (
-                <StyledCategory>
-                  <Typography variant="title">
-                    {category.categoryName}
-                  </Typography>
-                  <div>{category.description}</div>
-                  <div>{category.count} Courses</div>
-                </StyledCategory>
-              );
-            })}
+            {categories.map(
+              ({ categoryName, count, description }: Category) => {
+                return (
+                  <StyledCategory
+                    onClick={() => navigate(`/products/${categoryName}`)}
+                  >
+                    <Typography variant="title">{categoryName}</Typography>
+                    <div>{description}</div>
+                    <div>{count} Courses</div>
+                  </StyledCategory>
+                );
+              }
+            )}
           </Box>
         </StyledSection>
 
@@ -131,9 +140,12 @@ export default function HomePage() {
         </StyledSection>
 
         <StyledSection className="m-2 text-right">
-          <a href="product-list.html">
-            <Button className="btn btn-warning">Browse All Course</Button>
-          </a>
+          <Button
+            className="btn btn-warning mb-8"
+            onClick={() => navigate("/products")}
+          >
+            Browse All Course
+          </Button>
         </StyledSection>
       </main>
       <Footer />

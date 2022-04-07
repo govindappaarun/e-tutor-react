@@ -27,6 +27,10 @@ const privateRoutes = [
     path: "/products",
     element: <ProductList />,
   },
+  {
+    path: "/products/:id",
+    element: <ProductList />,
+  },
   { path: "product/:id", element: <ProductInfo /> },
   { path: "/cart", element: <Cart /> },
   { path: "/wishlist", element: <Wishlist /> },
