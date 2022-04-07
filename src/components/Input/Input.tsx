@@ -10,6 +10,7 @@ export type InputProps = {
   max?: number;
   name?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string | number;
 };
 
 export default function Input({
@@ -20,6 +21,7 @@ export default function Input({
   max,
   name,
   onChange,
+  value,
   ...rest
 }: InputProps) {
   return (
@@ -31,6 +33,7 @@ export default function Input({
         min={min}
         max={max}
         name={name}
+        value={value}
         onChange={onChange}
       />
     </StyledInput>

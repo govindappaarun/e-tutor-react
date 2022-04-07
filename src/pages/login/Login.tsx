@@ -9,20 +9,29 @@ import Typography from "src/components/Typography/Typography";
 import Image from "src/components/Image/Image";
 import axios from "axios";
 import { useForm } from "src/hooks/useForm";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "src/contexts";
 import InputPassword from "src/components/Input/InputPassword";
 import authService from "src/services/authService";
+
+interface LocationState {
+  from: Record<string, any>;
+}
 
 export default function Login() {
   const navigate = useNavigate();
   const { authState, authDispatch } = useAuth();
 
-  useEffect(() => {
-    if (authState.isLoggedIn) {
-      navigate("/home"); // auto redirect to home if logged in
+  const location = useLocation();
+  const state = location.state as LocationState;
+
+  const onLogin = () => {
+    if (state.from) {
+      navigate(state.from.pathname, { replace: true });
+    } else {
+      navigate("/products");
     }
-  }, [authState.isLoggedIn]);
+  };
 
   const initialState = {
     email: "",
@@ -36,7 +45,7 @@ export default function Login() {
         localStorage.setItem("token", response.encodedToken);
         localStorage.setItem("user", JSON.stringify(response.foundUser));
         authDispatch({ type: "DO_LOGIN", payload: response.foundUser });
-        navigate("/home");
+        onLogin();
       })
       .catch((err) => {
         console.log({ err });
