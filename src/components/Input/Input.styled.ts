@@ -34,7 +34,7 @@ export const StyledInput = styled.div<InputProps>`
   input {
     border: none;
     ${(p) =>
-      (p.type === "text" || !p.type) &&
+      (p.type === "text" || p.type === "password" || !p.type) &&
       css`
         outline: 1px solid ${(p) => p.theme.info.main};
       `};
