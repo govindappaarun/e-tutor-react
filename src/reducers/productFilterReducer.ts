@@ -71,6 +71,6 @@ export const productFilterReducer = (
       return initialState;
 
     default:
-      throw new Error(`Invalname action type ${type}`);
+      throw new Error(`Invalid action type ${type}`);
   }
 };
