@@ -33,18 +33,23 @@ export const StyledInput = styled.div<InputProps>`
 
   input {
     border: none;
-    outline: 1px solid ${(p) => p.theme.info.main};
+    ${(p) =>
+      (p.type === "text" || !p.type) &&
+      css`
+        outline: 1px solid ${(p) => p.theme.info.main};
+      `};
     padding: 1rem;
     position: relative;
     font-size: 1rem;
   }
 
-  input:focus-visible {
+  input :focus-visible {
     border: none;
     outline-width: 2px;
     outline-color: ${(p) => p.theme.primary.main};
   }
-  input:hover {
+
+  input input:hover {
     border: none;
     outline: 2px solid ${(p) => p.theme.black};
   }

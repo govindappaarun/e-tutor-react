@@ -1,13 +1,3 @@
-import React from "react";
-import Header from "../header";
-import Footer from "../footer";
+import HomePage from "./home";
 
-export default function HomePage() {
-  return (
-    <div>
-      <Header />
-      <main>home Page</main>
-      <Footer />
-    </div>
-  );
-}
+export default HomePage;

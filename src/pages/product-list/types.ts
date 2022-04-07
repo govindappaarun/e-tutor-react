@@ -6,6 +6,7 @@ export interface Product {
   tag: string;
   enrollment: string;
   price: number;
+  categoryName: string;
 }
 
 export interface Category {

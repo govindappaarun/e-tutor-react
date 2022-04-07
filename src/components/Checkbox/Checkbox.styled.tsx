@@ -8,6 +8,7 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
   align-items: center;
   padding: 5px;
   font-size: 1.15rem;
+  cursor: pointer;
   & input {
     width: ${(p) => (p.size ? Size[p.size] : Size["sm"])};
     height: ${(p) => (p.size ? Size[p.size] : Size["sm"])};

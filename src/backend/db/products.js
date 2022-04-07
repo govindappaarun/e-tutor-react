@@ -13,6 +13,7 @@ export const products = [
     price: 2500,
     img: "https://res.cloudinary.com/db9adijl0/image/upload/v1647968622/ecomm-assets/course-8_pkjm2o.jpg",
     rating: "4.5",
+    categoryName: "Programming",
     enrollment: "197,637 students",
   },
   {
@@ -22,6 +23,7 @@ export const products = [
     price: 1500,
     img: "https://res.cloudinary.com/db9adijl0/image/upload/v1647968621/ecomm-assets/course-7_idjwwv.jpg",
     rating: "5.0",
+    categoryName: "JavaScript",
     enrollment: "197,637 students",
   },
   {
@@ -31,6 +33,7 @@ export const products = [
     price: 1500,
     img: "https://res.cloudinary.com/db9adijl0/image/upload/v1647968621/ecomm-assets/course-5_a10cjy.jpg",
     rating: "5.0",
+    categoryName: "Web Development",
     enrollment: "197,637 students",
   },
   {
@@ -40,6 +43,7 @@ export const products = [
     price: 1500,
     img: "https://res.cloudinary.com/db9adijl0/image/upload/v1647968621/ecomm-assets/course-4_dd2erl.jpg",
     rating: "5.0",
+    categoryName: "Web Development",
     enrollment: "197,637 students",
   },
   {
@@ -49,6 +53,7 @@ export const products = [
     price: 2500,
     img: "https://res.cloudinary.com/db9adijl0/image/upload/v1647968622/ecomm-assets/course-1_pi9q9e.jpg",
     rating: "5.0",
+    categoryName: "Web Development",
     enrollment: "197,637 students",
   },
   {
@@ -58,6 +63,7 @@ export const products = [
     price: 1500,
     img: "https://res.cloudinary.com/db9adijl0/image/upload/v1647968621/ecomm-assets/course-2_mnssso.jpg",
     rating: "5.0",
+    categoryName: "Web Development",
     enrollment: "197,637 students",
   },
   {
@@ -67,6 +73,7 @@ export const products = [
     price: 1500,
     img: "https://res.cloudinary.com/db9adijl0/image/upload/v1647968622/ecomm-assets/course-1_pi9q9e.jpg",
     rating: "5.0",
+    categoryName: "Web Development",
     enrollment: "197,637 students",
   },
   {
@@ -76,6 +83,7 @@ export const products = [
     price: 1500,
     img: "https://res.cloudinary.com/db9adijl0/image/upload/v1647968621/ecomm-assets/course-6_t3smjz.jpg",
     rating: "5.0",
+    categoryName: "ReactJs",
     enrollment: "197,637 students",
   },
   {
@@ -85,6 +93,7 @@ export const products = [
     price: 1500,
     img: "https://res.cloudinary.com/db9adijl0/image/upload/v1647968622/ecomm-assets/course-1_pi9q9e.jpg",
     rating: "5.0",
+    categoryName: "ReactJs",
     enrollment: "197,637 students",
   },
   {
@@ -94,6 +103,7 @@ export const products = [
     price: 1500,
     img: "https://res.cloudinary.com/db9adijl0/image/upload/v1647968622/ecomm-assets/course-1_pi9q9e.jpg",
     rating: "5.0",
+    categoryName: "CSS",
     enrollment: "197,637 students",
   },
 ];

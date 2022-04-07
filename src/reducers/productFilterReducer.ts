@@ -1,21 +1,22 @@
 export type FilterState = {
-  courseType: string[];
+  category: string[];
   rating: string[];
-  sortBy: string;
+  sortByPrice: string;
   range: number;
 };
 
 export const initialState: FilterState = {
-  courseType: [],
+  category: [],
   rating: [],
-  sortBy: "",
+  sortByPrice: "",
   range: 0,
 };
 
 type Action =
   | { type: "SET_RATING"; payload: Record<string, any> }
   | { type: "SET_RANGE"; payload: number }
-  | { type: "SET_COURSE_TYPE"; payload: Record<string, any> }
+  | { type: "SET_SORTBY"; payload: string }
+  | { type: "SET_CATEGORY"; payload: Record<string, any> }
   | { type: "CLEAR_ALL"; payload: null };
 
 export const productFilterReducer = (
@@ -23,19 +24,19 @@ export const productFilterReducer = (
   { type, payload }: Action
 ) => {
   switch (type) {
-    case "SET_COURSE_TYPE": {
-      const { id, checked } = payload.item;
-      let courseType = [...state.courseType];
+    case "SET_CATEGORY": {
+      const { name, checked } = payload.item;
+      let category = [...state.category];
 
-      if (id && checked) {
-        courseType = [...courseType, id];
-      } else if (id) {
-        courseType = courseType.filter((item) => item !== id);
+      if (name && checked) {
+        category = [...category, name];
+      } else if (name && !checked) {
+        category = category.filter((item) => item !== name);
       }
 
       return {
         ...state,
-        courseType: [...courseType],
+        category: [...category],
       };
     }
     case "SET_RATING": {
@@ -60,10 +61,16 @@ export const productFilterReducer = (
         range: payload,
       };
 
+    case "SET_SORTBY":
+      return {
+        ...state,
+        sortByPrice: payload,
+      };
+
     case "CLEAR_ALL":
       return initialState;
 
     default:
-      throw new Error(`Invalid action type ${type}`);
+      throw new Error(`Invalname action type ${type}`);
   }
 };
