@@ -1,52 +1,72 @@
-# E Commerce App built for Tutor
+# E Tutor App
 
-# What next
+&nbsp;
+![20220222074229](https://user-images.githubusercontent.com/98606563/155051091-0fd8458f-61d2-4e92-85e8-a965589efe84.png)
 
-ecommerce:
+## Table of contents
 
-- add 3 to 4 more components
-- understand storybook design sytem
-- update colors based on that
+- [About](#about)
+- [Demo](#demo)
+- [Features List](#features)
+- [Walkthrough](#walkthrough)
+- [Installation](#installation)
+- [License](#license)
 
-- product page reducer imlementation of endgame
-- add stroybook version compatible with react-script 4.0.3
-- start creating pages for home page
+## About
 
-- add utilities for spacing
-- add utitlities
-- start doing the welcome page and home page
+Online tutor App built to practice Reactjs & demonstrate some of &its core features like components, hooks, contexts and reducers.
+&nbsp;
+Other libraries used with this App are React Router v6, styled-components, mockbee-backend
 
-- https://storybook.js.org/tutorials/design-systems-for-developers
-- understand storybooks visual testing
-  https://storybook.js.org/tutorials/ui-testing-handbook/react/en/visual-testing/
+## Demo
 
-- https://github.com/leonardomso/33-js-concepts 33 concepts
-  https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash
-- add test for components
+- [click here!](https://e-tutor-react.netlify.app/)
 
-- add tsconfig as per the project
+## Features
 
-- add mockbee integration
+- Landing Page
+- Home Page
+- Login Page
+- SingUp Page
+- Cart Page
+- WishList Page
+- Category / Product List Page
 
-- theme provider
-- cart provider
-- wish list provider
-- cartReducer
-- wishlist Reducer
+## Walkthrough
 
---- not found route
----- https://reactrouter.com/docs/en/v6/examples/basic
----- nested router for product and details
+https://user-images.githubusercontent.com/98606563/162150228-3a22be9e-0c48-4c34-9184-b2f2a0f4e6cf.mp4
 
-<!-- -- context -->
-<!-- ---- cart context and cart -->
+## Installation
 
-On Hold -
--- backend mockbee integration
----- install mockbee and its configuration
+- clone the repository
 
--- react components
----- styled components
--- responsiveness
+```
+ git clone https://github.com/govindappaarun/e-tutor-react.git
 
--- add nice 404 page for routes
+```
+
+- switch to develop branch
+  Develop branch all the code, so swith to develop
+
+```
+  git checkout develop
+```
+
+- install dependencies
+  Install all the project dependencies using npm and with laetest versions of nodejs
+
+```
+  npm install
+```
+
+- run the application
+  after successfull installation of all the dependencies run the below command in termainl
+
+
+  ```
+  npm run start
+  ```
+
+## License
+
+MIT License
