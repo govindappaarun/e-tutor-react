@@ -26,7 +26,7 @@ export default function Login() {
   const state = location.state as LocationState;
 
   const onLogin = () => {
-    if (state.from) {
+    if (state && state.from) {
       navigate(state.from.pathname, { replace: true });
     } else {
       navigate("/products");
