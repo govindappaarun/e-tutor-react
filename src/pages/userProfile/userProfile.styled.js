@@ -10,9 +10,9 @@ export const Wrapper = styled.div`
 export const ProfileCard = styled(Card)`
   width: 30rem;
   aspect-ratio: 1;
-  box-shadow: 2px 3px 2px ${(p) => p.theme.background.bg30};
+  box-shadow: 2px 3px 2px ${(p) => p.theme.bg};
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${(p) => p.theme.background.bg40};
+  border: 1px solid ${(p) => p.theme.bg};
 `;

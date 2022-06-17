@@ -9,8 +9,6 @@ import Typography from "src/components/Typography/Typography";
 import { useAuth, useCart, useTheme } from "src/contexts";
 import { CartIcon, WishIcon } from "src/components/Icon";
 import Badge from "src/components/Badge";
-import { ThemeIcon } from "./Header.styled";
-import clsx from "clsx";
 import { RiUserLine } from "react-icons/ri";
 
 export type HeaderProps = {};
@@ -70,15 +68,9 @@ export default function Header({ ...rest }: HeaderProps) {
                 </Badge>
                 <WishIcon />
               </Box>
-              <ThemeIcon
-                className={clsx("mx-1", { reverse: theme === "dark" })}
-                onClick={toggleTheme}
-              >
-                {theme}
-              </ThemeIcon>
-              <Link to="/home/profile">
+              {/* <Link to="/profile">
                 <RiUserLine className="mx-1" style={{ fontSize: "2rem" }} />
-              </Link>
+              </Link> */}
               <Button
                 onClick={doLogout}
                 color="warning"
