@@ -4,7 +4,10 @@ export default {
   doLogin: async (login) => {
     try {
       const response = await Api.post("/api/auth/login", { ...login });
-      return response.data;
+      if (response?.data?.foundUser) {
+        return response.data;
+      }
+      throw new Error("user details not found");
     } catch (error) {
       throw error;
     }

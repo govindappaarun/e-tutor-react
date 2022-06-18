@@ -8,6 +8,7 @@ import Wishlist from "./pages/wishlist";
 import ProductInfo from "./pages/product-list/Components/ProductInfo";
 import HomePage from "./pages/home";
 import SecureRoute from "./SecureRoute";
+import UserProfile from "./pages/userProfile";
 
 const NoMatch = () => <h3>404 - No matching route found</h3>;
 
@@ -57,6 +58,14 @@ const privateRoutes = [
     element: (
       <SecureRoute>
         <Wishlist />
+      </SecureRoute>
+    ),
+  },
+  {
+    path: "/profile",
+    element: (
+      <SecureRoute>
+        <UserProfile />
       </SecureRoute>
     ),
   },

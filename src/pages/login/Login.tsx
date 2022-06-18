@@ -18,6 +18,8 @@ interface LocationState {
   from: Record<string, any>;
 }
 
+type LoginCredentials = { email: string; password: string };
+
 export default function Login() {
   const navigate = useNavigate();
   const { authState, authDispatch } = useAuth();
@@ -26,7 +28,7 @@ export default function Login() {
   const state = location.state as LocationState;
 
   const onLogin = () => {
-    if (state.from) {
+    if (state && state.from) {
       navigate(state.from.pathname, { replace: true });
     } else {
       navigate("/products");
@@ -39,18 +41,29 @@ export default function Login() {
   };
 
   const { onChange, onSubmit, values } = useForm(async () => {
+    doLoginApi(values as LoginCredentials);
+  }, initialState);
+
+  const doLoginApi = (values: LoginCredentials) => {
+    if (!(values.email && values.password)) {
+      return;
+    }
     authService
       .doLogin(values)
-      .then((response) => {
-        localStorage.setItem("token", response.encodedToken);
-        localStorage.setItem("user", JSON.stringify(response.foundUser));
-        authDispatch({ type: "DO_LOGIN", payload: response.foundUser });
-        onLogin();
+      .then((result) => {
+        localStorage.setItem("token", result.encodedToken);
+        localStorage.setItem("user", JSON.stringify(result.foundUser));
+        authDispatch({ type: "DO_LOGIN", payload: result.foundUser });
+        navigate("/home");
       })
       .catch((err) => {
         console.log({ err });
       });
-  }, initialState);
+  };
+
+  const doGuestLogin = () => {
+    doLoginApi({ email: "johndoe@gmail.com", password: "johnDoe123" });
+  };
 
   return (
     <Wrapper>
@@ -84,14 +97,22 @@ export default function Login() {
               onChange={onChange}
               label="Password"
             />
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="space-between"
-              className="my-1"
-            >
-              <Button color="primary" outline>
-                Sign In <i className="fas fa-chevron-right"></i>
+            <Box display="flex" gap="md" direction="column">
+              <Button
+                color="primary"
+                style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem" }}
+              >
+                Sign In
+              </Button>
+
+              <Button
+                color="success"
+                outline
+                type="button"
+                onClick={doGuestLogin}
+                style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem" }}
+              >
+                Guest Sign In
               </Button>
             </Box>
           </form>

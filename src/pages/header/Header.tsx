@@ -4,13 +4,13 @@ import { Wrapper } from "./Header.styled";
 import Button from "src/components/Button";
 import Logo from "src/assets/media/logo-cap.png";
 import Box from "src/components/Box";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import Typography from "src/components/Typography/Typography";
 import { useAuth, useCart, useTheme } from "src/contexts";
 import { CartIcon, WishIcon } from "src/components/Icon";
 import Badge from "src/components/Badge";
-import { ThemeIcon } from "./Header.styled";
-import clsx from "clsx";
+import { RiUserLine } from "react-icons/ri";
+
 export type HeaderProps = {};
 
 export default function Header({ ...rest }: HeaderProps) {
@@ -68,12 +68,9 @@ export default function Header({ ...rest }: HeaderProps) {
                 </Badge>
                 <WishIcon />
               </Box>
-              <ThemeIcon
-                className={clsx("mx-1", { reverse: theme === "dark" })}
-                onClick={toggleTheme}
-              >
-                {theme}
-              </ThemeIcon>
+              {/* <Link to="/profile">
+                <RiUserLine className="mx-1" style={{ fontSize: "2rem" }} />
+              </Link> */}
               <Button
                 onClick={doLogout}
                 color="warning"
